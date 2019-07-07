@@ -1,0 +1,48 @@
+
+body {
+	background: black;
+	color: white;
+}
+/*			 TOP  ROW 			*/
+
+.start {
+	padding: 20px;
+	font-size: 30px;
+}
+
+.main-container {
+	/*visibility: hidden;*/
+}
+
+.intro-container {
+    text-align: center;
+}
+
+/*			 STATUS BAR   			*/
+
+.stats-container {
+	display: flex;
+	justify-content: space-around;
+}
+.stat-wrap {
+	display: flex;
+	flex-flow: column;
+	width: 100px;
+}
+.sidebar {
+	display: inline-block;
+	font-size: 25px;
+}
+.bar {
+	border: 2px solid white;
+	padding: 10px;
+}
+.time {
+	display: inline-block;
+	font-size: 20px;
+}
+
+#input {
+	display: inline-block;
+	font-size: 20px;
+}

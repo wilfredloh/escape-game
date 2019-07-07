@@ -2,24 +2,66 @@
 <html>
 <head>
     <title>Survival Game</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layer0.css">
+    <link rel="stylesheet" href="css/layer1.css">
+    <link rel="stylesheet" href="css/items.css">
 </head>
 <body>
-    <button id="start">Start Game</button>
-    <div class="container">
-        <div class="inside one">(1a)clue 1a</div>
-        <div class="inside two">(1b)clue 1b</div>
-        <div class="inside three">(Item)Key</div>
-        <div class="inside four">(Unlock)Box</div>
-        <div class="inside five">(2a)Clue 2a</div>
-        <div class="inside six">(3a)Clue 3a</div>
+
+    <div class="main-container">
+
+        <div class="intro-container">
+            <h1>ESCAPE from <br>Haunted Hill</h1>
+            <button id="start">Start Game</button>
+        </div>
+
+        <div class="game-container">
+            <div class="all-clues-0">
+                <div class="click clue-0-0">(1a)monkey</div>
+                <div class="click clue-0-1">(1b)window</div>
+                <div class="click clue-0-2">(1c)painting</div>
+                <div class="click clue-0-3">(1d)fire</div>
+                <div class="click clue-0-4">(1e)darkness</div>
+            </div>
+             <div class="all-items-0">
+                <div class="click item-0-0">(item)key</div>
+                <div class="click item-0-1">(item)scroll</div>
+                <div class="click item-0-2">(item)chair</div>
+            </div>
+             <div class="all-unlocks-0">
+                <div class="click unlock-0-0">(unlock)chest</div>
+                <div class="click unlock-0-1">(unlock)lamp/lever</div>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-wrap">
+                <div class="sidebar">Action</div>
+                <div><input class="sidebar" id="input" placeholder="Hello test"></input></div>
+            </div>
+            <div class="stat-wrap">
+                <div class="sidebar">Bag</div>
+                <div class="sidebar bar"></div>
+            </div>
+            <div class="stat-wrap">
+                <div class="sidebar">Life</div>
+                <div class="sidebar bar"></div>
+            </div>
+            <div class="stat-wrap">
+                <div class="sidebar">Time</div>
+                <div class="sidebar">
+                    <div class="time">10</div>
+                    <div class="time">: 00 PM</div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
-
-
-
+    <script src="js/layer0-dom.js"></script>
+    <script src="js/layer1-dom.js"></script>
+    <script src="js/display.js"></script>
     <script src="js/script.js"></script>
+
 </body>
 </html>
