@@ -1,18 +1,23 @@
 
-features/bugs to fix:
+NEW Features/bugs:
 
-- add in a story page and instructions before starting
+EASY
 - yes/no ---> clickable (REPLACE TO -->) confirm();
 - top left corner to remove clickable
 - add a subtle background to the entire body
-- difficulty levels
-- unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
-- show pic when lose (POP UP)
-- change audio/bg to an icon (add a start/stop button)
-- story to type out plus a blur before entering the scene
 - ask for name
+
+MEDIUM
+- show pic when lose (POP UP)
+- unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
+- change audio/bg to an icon (add a start/stop button)
+- hover to show a map
 - end game: calculate your score (time left + health left + number of items found)
-- rework the 'help' / 'hint' action
+
+HARD
+- difficulty levels
+- add a cheat code
+
 
 //////////////////////////////////////////////////////////////
 
@@ -55,3 +60,4 @@ SOURCES:
 	Escape room themes: https://lockpaperscissors.co/mysterious-escape-room-themes
 	Five Nights at Freddys: https://www.agame.com/game/five-nights-at-freddys-3
 	Walking dead telltale
+	25 escape room themes - https://lockpaperscissors.co/mysterious-escape-room-themes

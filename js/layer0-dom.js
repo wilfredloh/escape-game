@@ -16,13 +16,12 @@ let totalClues = 5; // adjust total number of clues
 let totalItems = 4; // adjust total number of items
 let totalUnlocks = 4; // adjust total number of unlocks
 
+let startButton = document.querySelector('#start');
+let storyContainer = document.querySelector('.story-container');
+
 /////////////////////////////////////////////////////////
 //      DIFFICULTY AND INTRO  DOM FUNCITON            //
 /////////////////////////////////////////////////////////
-
-// let instCont = document.createElement('div');
-// let diffCont = document.createElement('div');
-let startButton = document.querySelector('#start');
 
 let showDifficulty = function () {
     let introContainer = document.querySelector('.intro-container');
@@ -33,6 +32,16 @@ let showDifficulty = function () {
 }
 
 startButton.addEventListener('click', showDifficulty);
+
+let removeStory = function () {
+    // let storyContainer = document.querySelector('.story-container');
+    let divGameContainer = document.querySelector('.game-container');
+    let divStatsContainer = document.querySelector('.stats-container');
+    storyContainer.style.display = 'none';
+    divGameContainer.classList.remove('blur');
+    divStatsContainer.classList.remove('blur');
+}
+
 
 /////////////////////////////////////////////////////////
 //              MAIN DOM FUNCITON                   //
@@ -120,13 +129,12 @@ let startGame = function () {
     for (let o=0; o<2; o++) {
         let timeBar = document.createElement('div');
         timeBar.classList.add('time');
-        timeStat.appendChild(timeBar)
+        timeStat.appendChild(timeBar);
     }
     let timeBar1 = document.querySelectorAll('.time')[0];
     timeBar1.textContent = 10;
     let timeBar2 = document.querySelectorAll('.time')[1];
     timeBar2.textContent = ': 00 PM';
-
 
     // creating INPUT BAR                           //
     let inputDiv = document.querySelectorAll('.sidebar')[1];
@@ -144,13 +152,28 @@ let startGame = function () {
     // remove DIFFICULTY BUTTONS AND START GAME         //
     let diffContainer = document.querySelector('.difficulty-container');
     diffContainer.style.display = 'none';
+
+    // add BLUR EFFECT                  //
+    let storyContainer = document.querySelector('.story-container');
+    divGameContainer.classList.add('blur');
+    divStatsContainer.classList.add('blur');
+    storyContainer.style.display = 'block';
+    storyContainer.addEventListener('click',removeStory)
+    //end of startGame function
 }
 
-// CHANGE THIS LATER ON SO THAT DEPENDING ON THE START, CHANGE THIS
+// CHANGE THIS LATER ON SO THAT DEPENDING ON THE START, CHANGE THIS             DIFFICULTY BUTTONS
 startGame0.addEventListener('click', startGame);
 startGame1.addEventListener('click', startGame);
 startGame2.addEventListener('click', startGame);
 //              END MAIN DOM FUNCTION            //
+
+
+
+
+
+
+
 
 /////////////////////////////////////////////////////////
 //            HEALTH AND TIMER FUNCITONS              //
@@ -176,9 +199,11 @@ let runCountdown = function () {
 }
 
 // CHANGE THIS TO EASY / MEDIUM OR HARD BUTTON!!!
-startGame0.addEventListener('click', runCountdown);
-startGame1.addEventListener('click', runCountdown);
-startGame2.addEventListener('click', runCountdown);
+// startGame0.addEventListener('click', runCountdown);
+// startGame1.addEventListener('click', runCountdown);
+// startGame2.addEventListener('click', runCountdown);
+
+storyContainer.addEventListener('click', runCountdown);
 
 //              TIMER 1 FOR HOUR       //
 let startTimer1 = function () {

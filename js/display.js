@@ -9,7 +9,9 @@ let allClues = {
     layer0: {
         clue0: {
             displayClue() {
-                alert(`"A cute-looking toy monkey. It's holding a paper..." \n\n It says: \n\n hello There my name is HowaRd thE monkEy.`);
+                alert(`"A cute-looking toy monkey. It's holding a paper..." \n\n It says: \n\n HELLO tHERE HUMAN, READ ME WELL. MY NAME IS hOWArD THe MONKeY.`);
+
+
             }
         },
         clue1: {
@@ -178,7 +180,7 @@ let allUnlockables = {
             displayLocked(number, event) { //LOCKED AND UNLOCKED HAPPEN HERE
                 let answer = prompt(`"A dusty old lamp..."" \n\n Look under?`);
                 if (answer === 'y') {
-                    let code = prompt(`"There's a number lock" \n\n _ _ _ _`);
+                    let code = prompt(`"Looks like a 4 digit number lock..." \n\n _ _ _ _`);
                     if (code == '8237') {
                         alert(`You turned on the power! It might have unlocked something...`)
                         this.unlocked = true;
@@ -222,7 +224,7 @@ let helpers = {
     },
     hints: {
         help() {
-            alert(`This game requires you to search for clues and items hidden in each location.\n\nRead each clue carefully, as they will be crucial to solving the puzzle at hand.\n\nTo use an item that you have found, click on the image representing your chosen item.\n\nYou may be required to make Yes or No decisions.\nClick on Ok or Cancel to make your choice.\n\nType 'help' in the Action bar at any time to bring up the instructions page.`)
+            alert(`This game requires you to search for clues and items hidden in each location.\n\nRead each clue carefully, as they will be crucial to solving the puzzle at hand.\n\nTo use an item that you have found, click on the image representing your chosen item.\n\nYou may be required to make Yes or No decisions.\nClick on Ok or Cancel to make your choice.`)
         }
 
     }

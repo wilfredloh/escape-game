@@ -13,7 +13,7 @@ body {
 	color: white;
 	font-family: 'Oswald', sans-serif;
 }
-/*			 TOP  ROW 			*/
+/*			 MAIN CONTAINER			*/
 
 #start {
 	padding: 20px;
@@ -31,16 +31,24 @@ body {
 	left: 90%;
 }
 
-.big-headers {
-	font-size: 42px;
-	margin: 20px;
+.main-container {
+	/*visibility: hidden;*/
+	margin-top: 50px;
+	text-align: center;
 }
 
-.story {
-	font-size: 22px;
-	margin: 30px;
+.blur {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 
+.intro-container {
+}
+
+/*			 DIFFICULTY CONTAINER			*/
+.difficulty-container {
+	display: none;
+}
 .difficulty {
 	padding: 15px;
 	font-size: 25px;
@@ -48,20 +56,34 @@ body {
 	cursor: pointer;
 	margin: 20px 10px;
 }
-
-.main-container{
-	/*visibility: hidden;*/
-	margin-top: 50px;
-	text-align: center;
+/*.big-headers apply to both difficulty and story container*/
+.big-headers {
+	font-size: 42px;
+	margin: 20px;
 }
 
-.intro-container {
-}
-.difficulty-container {
-	display: none;
+/*			 STORY CONTAINER			*/
+.story {
+	font-size: 22px;
+	margin: 30px;
 }
 .story-container {
-	display: none;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px darkgrey;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+
+  display: none;
 }
 
 /*			 STATUS BAR   			*/
@@ -90,7 +112,7 @@ body {
 
 .time {
 	display: inline-block;
-	font-size: 23px;
+	font-size: 30px;
 }
 
 #input {
