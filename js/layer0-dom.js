@@ -3,11 +3,25 @@ console.log('layer0-dom.js running!')
 //      BACKGROUND MUSIC RUNS IMMEDIATELY           //
 
 // ADD START MUSIC ON START GAME, START/STOP BUTTON IN THE GAME ITSELF //
-let toggleMusic = function () {
-    backgroundMusic.play();
-}
+let musicToggle = false;
+
 let backgroundMusic = document.querySelector('#bg-music');
 let bgMusicButton = document.querySelector('#bg-button');
+
+let toggleMusic = function () {
+    bgMusicButton = document.querySelector('#bg-button');
+    if (musicToggle === false) {
+        backgroundMusic.play();
+        // bgMusicButton.src = "./images/icons/sound-off.png";
+
+        musicToggle = true;
+
+    } else {
+        backgroundMusic.pause();
+        // bgMusicButton.src = "./images/icons/sound-on.jpg";
+        musicToggle = false;
+    }
+}
 bgMusicButton.addEventListener('click', toggleMusic);
 
 //      ADD ALL ELEMENTS - ON CLICK ' START'            //
@@ -16,6 +30,7 @@ let totalClues = 5; // adjust total number of clues
 let totalItems = 4; // adjust total number of items
 let totalUnlocks = 4; // adjust total number of unlocks
 
+let divMainContainer = document.querySelector('.main-container');
 let startButton = document.querySelector('#start');
 let storyContainer = document.querySelector('.story-container');
 
@@ -35,7 +50,7 @@ startButton.addEventListener('click', showDifficulty);
 
 let removeStory = function () {
     // let storyContainer = document.querySelector('.story-container');
-    let divGameContainer = document.querySelector('.game-container');
+    let divGameContainer = document.querySelector('.game-container-0');
     let divStatsContainer = document.querySelector('.stats-container');
     storyContainer.style.display = 'none';
     divGameContainer.classList.remove('blur');
@@ -51,13 +66,14 @@ let startGame1 = document.querySelectorAll('.difficulty')[1];
 let startGame2 = document.querySelectorAll('.difficulty')[2];
 
 let startGame = function () {
-    let divMainContainer = document.querySelector('.main-container');
+    //leave this out for now... there is a global variable that does the same thing.. if all ok in a few tries, can delete below
+    // let divMainContainer = document.querySelector('.main-container');
     let divIntroContainer = document.querySelector('.intro-container');
 
         //           GAME CONTAINER              //
 
     let divGameContainer = document.createElement('div');
-    divGameContainer.classList.add('game-container');
+    divGameContainer.classList.add('game-container-0');
 
     let cluesDiv = document.createElement('div');
     cluesDiv.classList.add('all-clues-0');
@@ -205,27 +221,61 @@ let runCountdown = function () {
 
 storyContainer.addEventListener('click', runCountdown);
 
+//          GAME OVER FUNCTIONS  (TIME AND LIFE)       //
+
+
+let gameOver = function (number) {
+    let divGameContainer = document.querySelector('.game-container-0');
+    let divStatsContainer = document.querySelector('.stats-container');
+    let gameOverContainer = document.querySelector('.gameOver-container');
+    let gameOverLifeSound = document.querySelector('#gameover-life-sound');
+    let gameOverTimeSound = document.querySelector('#gameover-time-sound');
+
+    console.log('entered gameover function');
+    if (number === 1){
+        // gameOverContainer.style.backgroundImage = 'none';
+        gameOverContainer.classList.add('gameOver-container2');
+        gameOverTimeSound.play();
+    } else {
+        gameOverContainer.classList.add('gameOver-container');
+        gameOverLifeSound.play();
+    }
+
+    divGameContainer.classList.add('blur1');
+    divStatsContainer.classList.add('blur1');
+    gameOverContainer.style.display = 'flex';
+    gameOverContainer.addEventListener('click', function(){
+        location.reload();
+    });
+}
+
 //              TIMER 1 FOR HOUR       //
 let startTimer1 = function () {
+
     let displayTime1 = document.querySelectorAll('.time')[0];
     let stopTimer = function (){
         clearInterval(runInterval1);
     }
     time1++;
+
     if (time1 === 12){
         displayTime1.textContent = time1;
         time1 = 0;
     } else if (time1 === 3){
         displayTime1.textContent = 3;
         stopTimer();
+
         setTimeout(function () {
-            alert('You lose!')
+            // alert('You lose!');
+            gameOver();
         }, 1000);
     } else {
         displayTime1.textContent = time1;
     }
+
     if (time1 >= 2 && time1 <startTime ){
         displayTime1.style.color = 'red';
+        // divGameContainer.classList.add('blur1');
     }
 }
 
@@ -259,19 +309,19 @@ let startTimer2 = function () {
 
 //                HEALTH DECREASE          //
 let decreaseLifePoints = function () {
-    let displayLifePoints = document.querySelectorAll('.sidebar')[5];
     let stopTimer = function (){
         clearInterval(runInterval3);
     }
     currentLifePoints--;
-    displayLifePoints.textContent = currentLifePoints;
-    if (currentLifePoints === 0){
-        displayLifePoints.textContent = 0;
-        stopTimer();
-        setTimeout(function () {
-            alert('You lose!')
-        }, 1000);
-    }
+    displayLifePoints();
+    // if (currentLifePoints <= 0){
+    //     lifePointBar.textContent = 0;
+    //     setTimeout(function () {
+    //         gameOverContainer.style.backgroundImage = "url('..images/gameover2.png')";
+    //         gameOver();
+    //     }, 1000);
+    //     stopTimer();
+    // }
 }
 
     //          END OF DOM!!!                      //

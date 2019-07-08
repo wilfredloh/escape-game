@@ -16,9 +16,9 @@ let allClues = {
         },
         clue1: {
             displayClue() {
-                let inspect = prompt(`"It's dark outside. It's hard to see..."\n\n Look closer?`);
-                if (inspect === 'y') {
-                    alert(` "At first, there were eight..."`);
+                let inspect = confirm(`"It's dark outside. There's a writing on the window but it's hard to see clearly..."\n\n Look closer?`);
+                if (inspect) {
+                    alert(` "At the beginning, there were eight animals..."`);
                 }
             }
         },
@@ -31,15 +31,14 @@ let allClues = {
             displayClue() {
                 let answer = confirm(`"A cozy fireplace. Wish I could spend more time here..." \n\n Touch fire?`);
                 if (answer) {
-                    if (burnCounter >= 3) {
-                        alert('Cool!');
+                    if (burnCounter === 4) {
+                        alert('You unlocked a secret item!');
                     } else {
                         alert('You burned yourself!');
-                        let displayLifePoints = document.querySelectorAll('.sidebar')[5];
                         currentLifePoints -= 20;
-                        displayLifePoints.textContent = currentLifePoints;
-                        burnCounter +=1;
+                        displayLifePoints();
                     }
+                    burnCounter +=1;;
                 }
             }
         },
@@ -89,8 +88,8 @@ let allItems = {
             name: 'chair',
             found: false,
             displayItem(event) {
-                let answer = prompt(`"This chair looks sturdy. Maybe I can use it." \n\n Pick it up?`);
-                if (answer === 'y') {
+                let answer = confirm(`"This chair looks sturdy. Maybe I can use it." \n\n Pick it up?`);
+                if (answer) {
                     this.found = true;
                     event.target.style.display = 'none';
                 }
@@ -116,9 +115,8 @@ let allItems = {
             },
             useItem() {
                 alert(`You used: ${this.name}!`);
-                let displayLifePoints = document.querySelectorAll('.sidebar')[5];
                 currentLifePoints += 50;
-                displayLifePoints.textContent = currentLifePoints;
+                displayLifePoints();
                 this.found = false;
             }
         }
@@ -144,11 +142,13 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayUnlocked(number, event) {
-                let answer = prompt(`"Just a bunch of old toys, cartoon drawings and an old piece of paper." \n\n Keep paper?`);
-                if (answer === 'y') {
+                let answer = prompt(`"Just a bunch of old stuff: \n\n drawings\n toys \n paper \n\n What do you want to keep?\n\n (type the exact letters as seen above)`);
+                if (answer === 'paper') {
                     // UNLOCKABLE LINKED TO ITEM -- ('OLDPAPER')
                     allItems['layer0']['item1']['found'] = true;
                     event.target.style.display = 'none';
+                } else if (answer === 'drawings' || answer === 'toys'){
+                    alert(`"Maybe I shouln't take that..."`);
                 }
             },
             displayLocked() {
@@ -160,8 +160,8 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayUnlocked(number, event) {
-                let answer = prompt(`"There's something shiny inside. \n\n Take item?`);
-                if (answer === 'y') {
+                let answer = confirm(`"There's something shiny inside. \n\n Take item?`);
+                if (answer) {
                     // UNLOCKABLE LINKED TO ITEM -- ('KEY')
                     allItems['layer0']['item0']['found'] = true;
                     event.target.style.display = 'none';
@@ -178,15 +178,15 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayLocked(number, event) { //LOCKED AND UNLOCKED HAPPEN HERE
-                let answer = prompt(`"A dusty old lamp..."" \n\n Look under?`);
-                if (answer === 'y') {
+                let answer = confirm(`"A dusty old lamp..."" \n\n Look under?`);
+                if (answer) {
                     let code = prompt(`"Looks like a 4 digit number lock..." \n\n _ _ _ _`);
                     if (code == '8237') {
                         alert(`You turned on the power! It might have unlocked something...`)
                         this.unlocked = true;
                         event.target.style.display = 'none';
                     } else if (code) {
-                        alert(`Wrong combination!`)
+                        alert(`Nothing happened...`)
                     }
                 }
             }
@@ -195,16 +195,21 @@ let allUnlockables = {
             name: 'button',
             unlocked: false,
             found: false,
+            displayUnlocked(){
+                setMap1();
+                currentLayer +=1;
+            },
             displayLocked() { //LOCKED AND UNLOCKED HAPPEN HERE
                 let lamplever = allUnlockables['layer0']['unlockable2']['unlocked'];
-                let answer = prompt(`"There's a button on the wall... \n\n\ Press button?"`);
+                let answer = confirm(`"There's a button on the wall... \n\n\ Press button?"`);
                 if (lamplever) {
-                    if(answer === 'y') {
+                    if(answer) {
                         alert(`The walls are shifting!!!`)
-                        changeMap1();
+                        setMap1();
+                        currentLayer +=1;
                     }
                 } else {
-                    if (answer === 'y'){
+                    if (answer){
                         alert(`"Nothing happened...`);
                     }
                 }
@@ -218,6 +223,7 @@ let allUnlockables = {
 
 let helpers = {
     prompts: {
+        // not using this for now
         usePrompt () {
             return prompt('Select an item to use');
         }

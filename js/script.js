@@ -1,8 +1,5 @@
 console.log('main script running!');
 
-let currentLayer = 0; // do i need a layer actually?
-let currentLifePoints = 100;
-
 //                   LAYER 0 - ON CLICK                 //
 
 let checkMatch = function (event) {
@@ -10,10 +7,10 @@ let checkMatch = function (event) {
 let cluesDiv = document.querySelector('.all-clues-0');
 let itemsDiv = document.querySelector('.all-items-0');
 let unlockDiv = document.querySelector('.all-unlocks-0');
-let clickSound = document.querySelector('#clickSound');
+let clickingSound = document.querySelector('#clicking-sound');
 
     // THIS IS CAUSING A RANDOM PROBLEM SOMETIMES
-    clickSound.play();
+    clickingSound.play();
 
     if (cluesDiv === event.target.parentElement) {
         for (let i=0; i<cluesDiv.children.length; i++) {
@@ -75,6 +72,26 @@ let getCurrentItems = function () {
     }
 }
 
+    //  CHECK LIFE POINTS       //
+
+let currentLifePoints = 100;
+
+let displayLifePoints = function () {
+    let lifePointBar = document.querySelectorAll('.sidebar')[5];
+    let stopTimer = function () {
+        clearInterval(runInterval3);
+    }
+    if (currentLifePoints <= 0){
+        lifePointBar.textContent = 0;
+        setTimeout(function () {
+            gameOver(1);
+        }, 1000);
+        stopTimer();
+    } else {
+        lifePointBar.textContent = currentLifePoints;
+    }
+}
+
 let displayItemBar = function () {
     let itemBar = document.querySelectorAll('.bar')[0];
     while(itemBar.firstChild){
@@ -89,10 +106,7 @@ let displayItemBar = function () {
     }
 }
 
-//                      INPUT ANSWERS                            //
-
-// let userInput = document.querySelector('#input');
-// let input = '';
+//              INPUT OR CLICK ANSWERS         //
 
 let getUserInput = function (event) {
     let userInput = document.querySelector('#input');
@@ -121,15 +135,25 @@ let checkInput = function (input) {
     // }
     if (filteredInput.includes('help')) {
         helpers.hints.help();
-    } else if (filteredInput === 'cheat1') {
-        //unlock all items in the game
+    //              CHEAT CODES!!!!!!!
+    } else if (filteredInput === 'ch1') {
+        for (let i=0; i<Object.keys(allItems).length; i++){
+            for (let j=0; j<Object.keys(allItems['layer'+i]).length; j++) {
+                allItems['layer'+i]['item'+(j)]['found'] = true;
+                allUnlockables['layer'+i]['unlockable'+(j)]['unlocked'] = true;
+                allUnlockables['layer'+i]['unlockable'+(j)]['found'] = true;
+            }
+        }
+    } else if (filteredInput === 'stop') {
+        let timerbar = document.querySelectorAll('.stat-wrap')[3];
+        timerbar.style.display = 'none';
+    } else if (filteredInput = 'showall') {
+
     }
     getCurrentItems();
     displayItemBar();
 }
 // have not input an alert when an invalid item is inputted
-
-//                   GAME END                        //
 
 let useItem = function (event) {
     let dataId = event.target.dataset.id;
@@ -150,3 +174,5 @@ let useItem = function (event) {
     getCurrentItems();
     displayItemBar();
 }
+
+//                   GAME END                        //

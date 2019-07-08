@@ -2,22 +2,27 @@
 NEW Features/bugs:
 
 EASY
-- yes/no ---> clickable (REPLACE TO -->) confirm();
+- add more music or replay background music
 - top left corner to remove clickable
 - add a subtle background to the entire body
 - ask for name
+- change hover to something else
 
 MEDIUM
-- show pic when lose (POP UP)
 - unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
-- change audio/bg to an icon (add a start/stop button)
-- hover to show a map
+- hover to show a map or use map
 - end game: calculate your score (time left + health left + number of items found)
 
 HARD
-- difficulty levels
+* add new layers *** plus add an arrow to move between maps
+- difficulty levels (easy/m/hard)
 - add a cheat code
 
+//////////////////////////////////////////////////////////////
+
+	if click left(check the current layer, if layer = 3, query selector the layer to display none, then display the layer 3 - 1)
+	if click right ( do the opposite, if layer is 3, query sleector display none, display layer 3 +1)
+to make alot of layers, after layer 1, can actually create all the layers using dom, then display none to all, except for layer 2.
 
 //////////////////////////////////////////////////////////////
 

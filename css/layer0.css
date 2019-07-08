@@ -1,7 +1,7 @@
 /*           GAME  ROW          */
 
-.game-container {
-	background-image: url("../images/room0.jpg");
+.game-container-0 {
+	background-image: url("../images/rooms/room0.jpg");
 	background-size: cover;
 
 	height: 600px;
@@ -42,6 +42,11 @@
 	top: 50%;
 	left: 7%;
 }
+/*.clue-0-5 {
+	position: absolute;
+	top: 50%;
+	left: 100%;
+}*/
 .item-0-0 {
 	position: absolute;
 	top: 0%;

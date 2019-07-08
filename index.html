@@ -11,7 +11,7 @@
 <body>
 
     <div class="main-container">
-        <button id="bg-button">Toggle Music</button>
+        <img id="bg-button">
 
         <div class="intro-container">
             <div class="big-headers">ESCAPE from <br>Haunted Hill</div>
@@ -22,7 +22,7 @@
             <!-- <div class="instructions-container"> -->
                 <div class="big-headers">Instructions</div>
                 <div class="story">FIND for clues and items by pointing and clicking<br><br>
-                STUDY each clue carefully<br><br> USE items by clicking on them <br><br>If you need a refresher, type 'help' in the Action bar<br><br>
+                STUDY each clue carefully<br><br> USE items by clicking on them <br><br>If you need a refresher, type 'help' in the Action bar<br><br> * Optimal settings  [ 50% volume, 80% brightness ]
                  </div>
             <!-- </div> -->
 
@@ -36,7 +36,12 @@
 
         <div class="story-container">
             <!-- <div class="big-headers">Story</div> -->
-            <div class="story">You wake up in a dark room, alone.<br><br>The time is 10:00 PM.<br><br>You don't know how you got here but you need to GET OUT soon.<br><br>The room feels like it's choking... suffocating... poisoning you.<br><br>The phone rings:<br><br>" Hey there! You don't have much time. It's sleeping but it will kill at<span style="color: red"> 3:00 AM </span> Good luck ! " <br><br> - Phone guy
+            <div class="story">You wake up, alone in a dark room.<br><br>You try the doors but they're locked.<br><br>The time is 10:00 PM.<br><br>A thin layer of toxic gas is seeping into the room.<br><br>The phone rings:<br><br>" Hey there! You don't have much time. He's gonna wake. GET OUT before<span style="color: red"> 3:00 AM </span> Good luck ! " <br><br> - Mysterious person on phone</div>
+        </div>
+        <div class="gameOver-container">
+            <!-- <div class="big-headers">Story</div> -->
+            <div class="gameOver-text"> GAME</div>
+            <div class="gameOver-text"> OVER</div>
         </div>
 
        <!--  <div class="game-container">
@@ -80,12 +85,20 @@
             </div>
         </div> -->
 
-    <audio id="clickSound">
-        <source src="audio/button-click.mp3" type="audio/mpeg">
+    <audio id="clicking-sound">
+        <source src="audio/button3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameover-time-sound">
+        <source src="audio/gameover.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameover-life-sound">
+        <source src="audio/gameover2.mp3" type="audio/mpeg">
     </audio>
     <audio id="bg-music">
         <source src="audio/background.mp3" type="audio/mpeg">
     </audio>
+    <!-- <iframe src="audio/background.mp3" allow="autoplay" style="display:none" id="bg-music">
+    </iframe> -->
 
     </div>
     <script src="js/layer0-dom.js"></script>

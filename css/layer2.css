@@ -2,7 +2,7 @@
 
 /*           GAME  ROW          */
 
-.game-container-1 {
+.game-container-2 {
 	background-image: url("../images/rooms/room6.jpg");
 	background-size: cover;
 
@@ -19,66 +19,45 @@
 .click {
 	/*opacity: 0;*/
 }
-.clue-1-0 {
+.clue-2-0 {
 	position: absolute;
 	top: 50%;
 	right: 20%;
 	color: orange;
 }
-.clue-1-1 {
+.clue-2-1 {
 	position: absolute;
 	left: 10%;
 	right: 30%;
 	color: green;
 }
-.clue-1-2 {
+.clue-2-2 {
 	position: absolute;
 	left: 30%;
 	right: 50%;
 	color: blue;
 }
-.item-1-0 {
+.item-2-0 {
 	position: absolute;
 	top: 0%;
 	right: 0%;
 	color: green;
 }
-.item-1-1 {
+.item-2-1 {
 	position: absolute;
 	top: 30%;
 	right: 80%;
 	color: green;
 }
-.unlock-1-0 {
+.unlock-2-0 {
 	position: absolute;
 	top: 35%;
 	right: 45%;
 	color: red;
 }
-.unlock-1-1 {
+.unlock-2-1 {
 	position: absolute;
 	top: 90%;
 	right: 70%;
 	color: blue;
-}
-
-/*navigation arrows*/
-
-.right-arrow {
-	position: absolute;
-	top: 50%;
-	left: 96%;
-	content:url("../images/icons/right.jpg");
-	width: 50px;
-	height: 50px;
-}
-
-.left-arrow {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	content:url("../images/icons/right.jpg");
-	transform: rotate(180deg);
-	width: 50px;
-	height: 50px;
 }
