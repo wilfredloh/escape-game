@@ -1,17 +1,33 @@
-
+/*			 No highlighting of background 					*/
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*						 								*/
 body {
 	background: black;
 	color: white;
+	font-family: 'Oswald', sans-serif;
 }
 /*			 TOP  ROW 			*/
 
-.start {
+#start {
 	padding: 20px;
 	font-size: 30px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#start:active{
+	cursor: grabbing;
 }
 
 .main-container {
 	/*visibility: hidden;*/
+	margin-top: 50px;
 }
 
 .intro-container {
@@ -27,22 +43,41 @@ body {
 .stat-wrap {
 	display: flex;
 	flex-flow: column;
-	width: 100px;
+	width: 200px;
 }
 .sidebar {
 	display: inline-block;
-	font-size: 25px;
+	font-size: 23px;
+	margin: 5px;
 }
+
 .bar {
-	border: 2px solid white;
+	border: 3px solid white;
+	border-radius: 10px;
 	padding: 10px;
+	display: inline-block;
 }
+
 .time {
 	display: inline-block;
-	font-size: 20px;
+	font-size: 23px;
 }
 
 #input {
 	display: inline-block;
 	font-size: 20px;
+	border-radius: 10px;
 }
+
+/*			 MOUSE POINTER    			*/
+
+.click {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.click:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+/*			 END     			*/

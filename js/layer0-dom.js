@@ -1,9 +1,20 @@
 console.log('layer0-dom.js running!')
-//      ADD ALL ELEMENTS - ON CLICK ' START'              //
+
+//      BACKGROUND MUSIC RUNS IMMEDIATELY           //
+
+    // ADD START MUSIC ON START GAME, START/STOP BUTTON IN THE GAME ITSELF //
+    // let toggleMusic = function () {
+    //     backgroundMusic.play();
+    // }
+    // let backgroundMusic = document.querySelector('#bg-music');
+    // let bgMusicButton = document.querySelector('#bg-button');
+    // bgMusicButton.addEventListener('click', toggleMusic);
+
+//      ADD ALL ELEMENTS - ON CLICK ' START'            //
 
 let totalClues = 5; // adjust total number of clues
-let totalItems = 5; // adjust total number of items
-let totalUnlocks = 5; // adjust total number of unlocks
+let totalItems = 4; // adjust total number of items
+let totalUnlocks = 4; // adjust total number of unlocks
 
 let startButton = document.querySelector('#start');
 
@@ -12,7 +23,7 @@ let startGame = function () {
     let divMainContainer = document.querySelector('.main-container');
     let divIntroContainer = document.querySelector('.intro-container');
 
-    //              GAME CONTAINER                 //
+        //           GAME CONTAINER              //
 
     let divGameContainer = document.createElement('div');
     divGameContainer.classList.add('game-container');
@@ -63,7 +74,7 @@ let startGame = function () {
 
     // creating CLASS: STAT WRAP                    //
     // l = 4 because there are 4 stat bars at the bottom
-    // m = 2 because there are 2 bars in each stat-wrap
+    // m = 2 because there are 2 sidebars in each stat-wrap
     for(let l=0; l<4 ; l++) {
         let stats = document.createElement('div');
         stats.classList.add('stat-wrap');
@@ -77,73 +88,128 @@ let startGame = function () {
     divMainContainer.appendChild(divStatsContainer)
 
     // creating CLASS: SIDEBAR                      //
-    let statsArray = ['Action', '', 'Bag', '', 'Life', '', 'Time', '12 AM'];
+    let statsArray = ['Action', '', 'Bag', '', 'Life', '100', 'Time', ''];
     for (let n=0; n<statsArray.length; n++) {
         let currentStat = document.querySelectorAll('.sidebar')[n]
         currentStat.textContent = statsArray[n];
     }
+    // creating CLASS: TIME (UNDER SIDEBAR 8)       //
+    let timeStat = document.querySelectorAll('.sidebar')[7];
+    for (let o=0; o<2; o++) {
+        let timeBar = document.createElement('div');
+        timeBar.classList.add('time');
+        timeStat.appendChild(timeBar)
+    }
+    let timeBar1 = document.querySelectorAll('.time')[0];
+    timeBar1.textContent = 10;
+    let timeBar2 = document.querySelectorAll('.time')[1];
+    timeBar2.textContent = ': 00 PM';
+
+
     // creating INPUT BAR                           //
     let inputDiv = document.querySelectorAll('.sidebar')[1];
     let input = document.createElement('input');
     input.id = 'input';
     inputDiv.appendChild(input);
     input.addEventListener('change', getUserInput);
-    // creating INPUT BAR                           //
+
+    // ADDING CLASS TO STATUS BARS                     //
     let displayBar1 = document.querySelectorAll('.sidebar')[3];
     let displayBar2 = document.querySelectorAll('.sidebar')[5];
     displayBar1.classList.add('bar');
     displayBar2.classList.add('bar');
-    // remove START BUTTON AND HEADER                      //
+
+    // remove START BUTTON AND HEADER                    //
     let introContainer = document.querySelector('.intro-container');
     introContainer.style.display = 'none';
 
 }
 
 startButton.addEventListener('click', startGame);
+//              END MAIN DOM FUNCTION            //
 
+//            HEALTH AND TIMER FUNCITONS              //
 
-//              HEALTH AND TIMER FUNCITON                   //
+let time1 = 10;
+let time2 = 0;
 
-let health = 100;
-let time = 10;
-let runInterval;
+let timeAPM = ': 00 PM'
+let timeBPM = ': 30 PM'
+let timeAAM = ': 00 AM'
+let timeBAM = ': 30 AM'
+
+let runInterval1; // HOUR
+let runInterval2; // AM/PM
+let runInterval3; //life points
 
 let runCountdown = function () {
-    let displayHealth = document.querySelectorAll('.sidebar')[5];
-    let displayTime = document.querySelectorAll('.sidebar')[7];
-    // let board = document.getElementById('board');
-    // let h1 = document.getElementsByTagName('h1')[0];
-    displayTime.textContent = time;
-    // board.insertBefore(displayTimer, h1);
-    runInterval = setInterval(startTimer, 1000)
+    runInterval1 = setInterval(startTimer1, 40000);
+    runInterval2 = setInterval(startTimer2, 20000);
+    runInterval3 = setInterval(decreaseLifePoints, 7500);
 }
 startButton.addEventListener('click', runCountdown);
 
-let startTimer = function () {
-    let displayHealth = document.querySelectorAll('.sidebar')[5];
-    let displayTime = document.querySelectorAll('.sidebar')[7];
-
+//              TIMER 1 FOR HOUR       //
+let startTimer1 = function () {
+    let displayTime1 = document.querySelectorAll('.time')[0];
     let stopTimer = function (){
-        clearInterval(runInterval);
+        clearInterval(runInterval1);
     }
-    time++;
-    if (time === 3){
+    time1++;
+    if (time1 === 12){
+        displayTime1.textContent = time1;
+        time1 = 0;
+    } else if (time1 === 3){
+        displayTime1.textContent = 3;
+        stopTimer();
+        setTimeout(function () {
+            alert('You lose!')
+        }, 1000);
+    } else {
+        displayTime1.textContent = time1;
+    }
+}
+
+//              TIMER 2 FOR AM AND PM       //
+let startTimer2 = function () {
+    let displayTime2 = document.querySelectorAll('.time')[1];
+    let stopTimer = function (){
+        clearInterval(runInterval2);
+    }
+    time2++;
+    if (time1 < 12 && time1 > 3) {
+        if (time2%2 === 0) {
+            displayTime2.textContent = timeAPM;
+        } else if (time1 < 12) {
+            displayTime2.textContent = timeBPM;
+        }
+    } else {
+        if (time2%2 === 0) {
+            displayTime2.textContent = timeAAM;
+        } else if (time1 < 12) {
+            displayTime2.textContent = timeBAM;
+        }
+    }
+    if (time1 === 3){
         stopTimer();
     }
-    displayTime.textContent = time;
-    // if (moveHappened === true) {
-    //     stopTimer();
-    //     moveHappened = false;
-    //     timer = 5;
-    //     runCountdown();
-    // } else if (timer === 0) {
-    //     alert('You lose!')
-    //     stopTimer();
-    // } else if (timer > 0) {
-    //     timer -= 1;
-    //     displayTimer.textContent = timer;
-    // }
-    console.log(time);
+}
+
+//                HEALTH DECREASE          //
+let decreaseLifePoints = function () {
+    let displayLifePoints = document.querySelectorAll('.sidebar')[5];
+    let stopTimer = function (){
+        clearInterval(runInterval3);
+    }
+    currentLifePoints--;
+    displayLifePoints.textContent = currentLifePoints;
+    if (currentLifePoints === 0){
+        displayLifePoints.textContent = 0;
+        stopTimer();
+        setTimeout(function () {
+            alert('You lose!')
+        }, 1000);
+    }
 }
 
     //          END OF DOM!!!                      //

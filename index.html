@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Survival Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/layer0.css">
     <link rel="stylesheet" href="css/layer1.css">
@@ -10,13 +11,18 @@
 <body>
 
     <div class="main-container">
+        <button id="bg-button">Toggle Music</button>
 
         <div class="intro-container">
             <h1>ESCAPE from <br>Haunted Hill</h1>
             <button id="start">Start Game</button>
+            <h2>Instructions</h2>
+            <p>To use an item, click on the image representing your chosen item. <br>To agree with an interaction, input 'y' when prompted. </p>
+            <h2>Story</h2>
+            <p>You wake up in a dark room. <br>You look around and no one is around. <br>The room is suffocating... not just in your mind but you start to get dizzy. <br>You look at the clock. It's 10 PM... <br><br>"He's coming for you... " <br> <br>You hear footsteps in the distance. You need to get OUT soon.<br><br> * Get out before 3 AM or meet your doom...</p>
         </div>
 
-        <div class="game-container">
+      <!--   <div class="game-container">
             <div class="all-clues-0">
                 <div class="click clue-0-0">(1a)monkey</div>
                 <div class="click clue-0-1">(1b)window</div>
@@ -55,7 +61,14 @@
                     <div class="time">: 00 PM</div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+    <audio id="clickSound">
+        <source src="audio/button-click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bg-music">
+        <source src="audio/background.mp3" type="audio/mpeg">
+    </audio>
 
     </div>
     <script src="js/layer0-dom.js"></script>

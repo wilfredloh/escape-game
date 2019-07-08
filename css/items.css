@@ -1,23 +1,33 @@
-.item-key {
-	content: url("https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/key.png");
-	width:50px;
+
+img{
+	width: 50px;
 	height: 50px;
+	border-radius: 40%;
+	margin: 5px;
 }
 
-.item-oldpaper {
+img {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+img:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+.item-key {
+	content: url("https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/key.png");
+}
+
+.item-paper {
 	content: url("https://comps.canstockphoto.com/old-map-treasure-island-3d-vector-icon-clipart-vector_csp44616457.jpg");
-		width:50px;
-	height: 50px;
 }
 
 .item-chair {
 	content: url("https://5.imimg.com/data5/RK/MU/MY-22845518/wooden-dining-table-500x500.jpg");
-		width:50px;
-	height: 50px;
 }
 
 .item-potion {
 	content: url("https://soappotions.com/wp-content/uploads/2017/10/round.jpg");
-		width:50px;
-	height: 50px;
 }

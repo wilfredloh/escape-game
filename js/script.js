@@ -1,6 +1,7 @@
 console.log('main script running!');
 
 let currentLayer = 0; // do i need a layer actually?
+let currentLifePoints = 100;
 
 //                   LAYER 0 - ON CLICK                 //
 
@@ -9,6 +10,10 @@ let checkMatch = function (event) {
 let cluesDiv = document.querySelector('.all-clues-0');
 let itemsDiv = document.querySelector('.all-items-0');
 let unlockDiv = document.querySelector('.all-unlocks-0');
+let clickSound = document.querySelector('#clickSound');
+
+    // THIS IS CAUSING A RANDOM PROBLEM SOMETIMES
+    clickSound.play();
 
     if (cluesDiv === event.target.parentElement) {
         for (let i=0; i<cluesDiv.children.length; i++) {
@@ -29,6 +34,7 @@ let unlockDiv = document.querySelector('.all-unlocks-0');
             }
         }
     }
+
     getCurrentItems();
     displayItemBar();
 }
@@ -40,7 +46,7 @@ let checkClue = function (number) {
 }
 
 let checkItem = function (number, event) {
-    allItems[`layer${currentLayer}`][`item${number}`].displayItem(number, event);
+    allItems[`layer${currentLayer}`][`item${number}`].displayItem(event);
 }
 
 let checkUnlock = function (number, event) {
@@ -77,6 +83,8 @@ let displayItemBar = function () {
     for (let i=0; i<currentItems.length; i++) {
         let itemImage = document.createElement('img');
         itemImage.classList.add(`item-${currentItems[i]}`);
+        itemImage.dataset.id = currentItems[i];
+        itemImage.addEventListener('click', useItem);
         itemBar.appendChild(itemImage);
     }
 }
@@ -94,25 +102,26 @@ let getUserInput = function (event) {
 }
 
 let checkInput = function (input) {
-    if (input === 'use'){
-        let use = helpers.prompts.usePrompt();
-        // loops in allItems (each layer) and (each item)
-        for (let i=0; i<Object.keys(allItems).length; i++){
-            for (let j=0; j<Object.keys(allItems['layer'+i]).length; j++) {
-                // if the item's found is true, run useItem()
-                if (use === allItems['layer'+i]['item'+(j)]['name']){
-                    if (allItems['layer'+i]['item'+(j)]['found']){
-                        allItems['layer'+i]['item'+(j)].useItem(j);
-                    } else {
-                        invalidItems.missingItem(use)
-                    }
-                }
-            }
-        }
-    }
-    if (input === 'help') {
+    filteredInput = input.toLowerCase();
+    // if (input === 'use'){
+    //     let use = helpers.prompts.usePrompt();
+    //     // loops in allItems (each layer) and (each item)
+    //     for (let i=0; i<Object.keys(allItems).length; i++){
+    //         for (let j=0; j<Object.keys(allItems['layer'+i]).length; j++) {
+    //             // if the item's found is true, run useItem()
+    //             if (use === allItems['layer'+i]['item'+(j)]['name']){
+    //                 if (allItems['layer'+i]['item'+(j)]['found']){
+    //                     allItems['layer'+i]['item'+(j)].useItem(j);
+    //                 } else {
+    //                     invalidItems.missingItem(use)
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    if (filteredInput.includes('help')) {
         helpers.hints.help();
-    } else if (input === 'cheat1') {
+    } else if (filteredInput === 'cheat1') {
         //unlock all items in the game
     }
     getCurrentItems();
@@ -121,3 +130,23 @@ let checkInput = function (input) {
 // have not input an alert when an invalid item is inputted
 
 //                   GAME END                        //
+
+let useItem = function (event) {
+    let dataId = event.target.dataset.id;
+    for (let i=0; i<currentItems.length; i++){
+        if (dataId === currentItems[i]){
+            console.log(dataId)
+            for (let j=0; j<Object.keys(allItems).length; j++){
+                // need to find out why the method below doesn't work to replace k's length
+                //Object.keys(allItems['layer'+k]).length
+                for (let k=0; k<4; k++) {
+                    if (dataId === allItems['layer'+j]['item'+(k)]['name']){
+                        allItems['layer'+j]['item'+(k)].useItem();
+                    }
+                } break;
+            }
+        }
+    }
+    getCurrentItems();
+    displayItemBar();
+}
