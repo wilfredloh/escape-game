@@ -222,7 +222,7 @@ let helpers = {
     },
     hints: {
         help() {
-            alert("1. To use items, type 'use' in the input box below. \n\n 2. Any time an interaction occurs, type 'y' to agree with the interaction. Click 'cancel' to leave.")
+            alert(`This game requires you to search for clues and items hidden in each location.\n\nRead each clue carefully, as they will be crucial to solving the puzzle at hand.\n\nTo use an item that you have found, click on the image representing your chosen item.\n\nYou may be required to make Yes or No decisions.\nClick on Ok or Cancel to make your choice.\n\nType 'help' in the Action bar at any time to bring up the instructions page.`)
         }
 
     }

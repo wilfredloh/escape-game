@@ -20,18 +20,48 @@ body {
 	font-size: 30px;
 	border-radius: 10px;
 	cursor: pointer;
+	margin: 20px;
 }
 #start:active{
 	cursor: grabbing;
 }
+#bg-button {
+	position: absolute;
+	top: 3%;
+	left: 90%;
+}
 
-.main-container {
+.big-headers {
+	font-size: 42px;
+	margin: 20px;
+}
+
+.story {
+	font-size: 22px;
+	margin: 30px;
+}
+
+.difficulty {
+	padding: 15px;
+	font-size: 25px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 20px 10px;
+}
+
+.main-container{
 	/*visibility: hidden;*/
 	margin-top: 50px;
+	text-align: center;
 }
 
 .intro-container {
-    text-align: center;
+}
+.difficulty-container {
+	display: none;
+}
+.story-container {
+	display: none;
 }
 
 /*			 STATUS BAR   			*/

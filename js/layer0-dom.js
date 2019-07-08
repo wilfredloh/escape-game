@@ -2,13 +2,13 @@ console.log('layer0-dom.js running!')
 
 //      BACKGROUND MUSIC RUNS IMMEDIATELY           //
 
-    // ADD START MUSIC ON START GAME, START/STOP BUTTON IN THE GAME ITSELF //
-    // let toggleMusic = function () {
-    //     backgroundMusic.play();
-    // }
-    // let backgroundMusic = document.querySelector('#bg-music');
-    // let bgMusicButton = document.querySelector('#bg-button');
-    // bgMusicButton.addEventListener('click', toggleMusic);
+// ADD START MUSIC ON START GAME, START/STOP BUTTON IN THE GAME ITSELF //
+let toggleMusic = function () {
+    backgroundMusic.play();
+}
+let backgroundMusic = document.querySelector('#bg-music');
+let bgMusicButton = document.querySelector('#bg-button');
+bgMusicButton.addEventListener('click', toggleMusic);
 
 //      ADD ALL ELEMENTS - ON CLICK ' START'            //
 
@@ -16,9 +16,31 @@ let totalClues = 5; // adjust total number of clues
 let totalItems = 4; // adjust total number of items
 let totalUnlocks = 4; // adjust total number of unlocks
 
+/////////////////////////////////////////////////////////
+//      DIFFICULTY AND INTRO  DOM FUNCITON            //
+/////////////////////////////////////////////////////////
+
+// let instCont = document.createElement('div');
+// let diffCont = document.createElement('div');
 let startButton = document.querySelector('#start');
 
+let showDifficulty = function () {
+    let introContainer = document.querySelector('.intro-container');
+    introContainer.style.display = 'none';
+
+    let diffContainer = document.querySelector('.difficulty-container');
+    diffContainer.style.display = 'block';
+}
+
+startButton.addEventListener('click', showDifficulty);
+
+/////////////////////////////////////////////////////////
 //              MAIN DOM FUNCITON                   //
+/////////////////////////////////////////////////////////
+let startGame0 = document.querySelectorAll('.difficulty')[0];
+let startGame1 = document.querySelectorAll('.difficulty')[1];
+let startGame2 = document.querySelectorAll('.difficulty')[2];
+
 let startGame = function () {
     let divMainContainer = document.querySelector('.main-container');
     let divIntroContainer = document.querySelector('.intro-container');
@@ -119,18 +141,23 @@ let startGame = function () {
     displayBar1.classList.add('bar');
     displayBar2.classList.add('bar');
 
-    // remove START BUTTON AND HEADER                    //
-    let introContainer = document.querySelector('.intro-container');
-    introContainer.style.display = 'none';
-
+    // remove DIFFICULTY BUTTONS AND START GAME         //
+    let diffContainer = document.querySelector('.difficulty-container');
+    diffContainer.style.display = 'none';
 }
 
-startButton.addEventListener('click', startGame);
+// CHANGE THIS LATER ON SO THAT DEPENDING ON THE START, CHANGE THIS
+startGame0.addEventListener('click', startGame);
+startGame1.addEventListener('click', startGame);
+startGame2.addEventListener('click', startGame);
 //              END MAIN DOM FUNCTION            //
 
+/////////////////////////////////////////////////////////
 //            HEALTH AND TIMER FUNCITONS              //
+/////////////////////////////////////////////////////////
 
-let time1 = 10;
+let startTime = 10;
+let time1 = startTime;
 let time2 = 0;
 
 let timeAPM = ': 00 PM'
@@ -143,11 +170,15 @@ let runInterval2; // AM/PM
 let runInterval3; //life points
 
 let runCountdown = function () {
-    runInterval1 = setInterval(startTimer1, 40000);
-    runInterval2 = setInterval(startTimer2, 20000);
-    runInterval3 = setInterval(decreaseLifePoints, 7500);
+    runInterval1 = setInterval(startTimer1, 60000);
+    runInterval2 = setInterval(startTimer2, 30000);
+    runInterval3 = setInterval(decreaseLifePoints, 5000);
 }
-startButton.addEventListener('click', runCountdown);
+
+// CHANGE THIS TO EASY / MEDIUM OR HARD BUTTON!!!
+startGame0.addEventListener('click', runCountdown);
+startGame1.addEventListener('click', runCountdown);
+startGame2.addEventListener('click', runCountdown);
 
 //              TIMER 1 FOR HOUR       //
 let startTimer1 = function () {
@@ -167,6 +198,9 @@ let startTimer1 = function () {
         }, 1000);
     } else {
         displayTime1.textContent = time1;
+    }
+    if (time1 >= 2 && time1 <startTime ){
+        displayTime1.style.color = 'red';
     }
 }
 
@@ -192,6 +226,9 @@ let startTimer2 = function () {
     }
     if (time1 === 3){
         stopTimer();
+    }
+    if (time1 >= 2 && time1 <startTime ){
+        displayTime2.style.color = 'red';
     }
 }
 
