@@ -1,0 +1,237 @@
+/*           GAME  ROW          */
+
+.all-game-containers {
+		height: 600px;
+	width: 1200px;
+	position: relative;
+	margin: 0 auto;
+	/*display: none;*/
+	background-size: cover;
+}
+
+.game-container-0 {
+	background-image: url("../images/rooms/room0.jpg");
+}
+.game-container-1 {
+	background-image: url("../images/rooms/hall0.jpg");
+}
+.game-container-2 {
+	background-image: url("../images/rooms/room2.jpg");
+}
+.game-container-3 {
+	background-image: url("../images/rooms/room1.jpg");
+}
+
+		/*CLICKS AND NAVIGATION ARROWS		*/
+.click {
+	/*opacity: 0;*/
+	width: 50px;
+	height: 50px;
+}
+.right-arrow {
+	position: absolute;
+	top: 50%;
+	left: 96%;
+	content:url("../images/icons/right.jpg");
+	width: 50px;
+	height: 50px;
+}
+.left-arrow {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	content:url("../images/icons/right.jpg");
+	transform: rotate(180deg);
+	width: 50px;
+	height: 50px;
+}
+/*        LAYER 0 HERE			 */
+
+.clue-0-0 {
+	position: absolute;
+	top: 88%;
+	left: 10%;
+}
+.clue-0-1 {
+	position: absolute;
+	top: 60%;
+	left: 37%;
+}
+.clue-0-2 {
+	position: absolute;
+	top: 45%;
+	left: 52%;
+}
+.clue-0-3 {
+	position: absolute;
+	top: 70%;
+	left: 53%;
+}
+.clue-0-4 {
+	position: absolute;
+	top: 50%;
+	left: 7%;
+}
+.item-0-0 {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+.item-0-1 {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+.item-0-2 {
+	position: absolute;
+	top: 72%;
+	left: 65%;
+}
+.item-0-3 {
+	position: absolute;
+	top: 85%;
+	left: 77%;
+}
+.unlock-0-0 {
+	position: absolute;
+	top: 75%;
+	left: 39%;
+}
+.unlock-0-1 {
+	position: absolute;
+	top: 37%;
+	left: 20%;
+}
+.unlock-0-2 {
+	position: absolute;
+	top: 82%;
+	left: 87%;
+}
+.unlock-0-3 {
+	position: absolute;
+	top: 45%;
+	left: 67%;
+}
+/*        LAYER 1 HERE			 */
+
+.clue-1-0 {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	color: orange;
+}
+.clue-1-1 {
+	position: absolute;
+	left: 10%;
+	right: 30%;
+	color: green;
+}
+.clue-1-2 {
+	position: absolute;
+	left: 30%;
+	right: 50%;
+	color: blue;
+}
+.item-1-0 {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	color: green;
+}
+.item-1-1 {
+	position: absolute;
+	top: 30%;
+	right: 80%;
+	color: green;
+}
+.unlock-1-0 {
+	position: absolute;
+	top: 35%;
+	right: 45%;
+	color: red;
+}
+.unlock-1-1 {
+	position: absolute;
+	top: 90%;
+	right: 70%;
+	color: blue;
+}
+/*        LAYER 2 HERE			 */
+
+.clue-2-0 {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	color: orange;
+}
+.clue-2-1 {
+	position: absolute;
+	left: 10%;
+	right: 30%;
+	color: green;
+}
+.clue-2-2 {
+	position: absolute;
+	left: 30%;
+	right: 50%;
+	color: blue;
+}
+.item-2-0 {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	color: green;
+}
+.item-2-1 {
+	position: absolute;
+	top: 30%;
+	right: 80%;
+	color: green;
+}
+.unlock-2-0 {
+	position: absolute;
+	top: 35%;
+	right: 45%;
+	color: red;
+}
+.unlock-2-1 {
+	position: absolute;
+	top: 90%;
+	right: 70%;
+	color: blue;
+}
+
+/*        LAYER 3 HERE			 */
+
+.clue-3-0 {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	color: orange;
+}
+.item-3-0 {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	color: green;
+}
+.item-3-1 {
+	position: absolute;
+	top: 30%;
+	right: 80%;
+	color: green;
+}
+.unlock-3-0 {
+	position: absolute;
+	top: 35%;
+	right: 45%;
+	color: red;
+}
+.unlock-3-1 {
+	position: absolute;
+	top: 90%;
+	right: 70%;
+	color: blue;
+}
+
+/*        END			 */

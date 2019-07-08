@@ -1,6 +1,10 @@
 
 NEW Features/bugs:
 
+1. ADD 2/3 NEW LAYERS PLS
+2. fix left arrow - if left is zero layer, cannot go negative!
+3. CHANGE DIFFICULTY
+
 EASY
 - add more music or replay background music
 - top left corner to remove clickable
@@ -12,17 +16,15 @@ MEDIUM
 - unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
 - hover to show a map or use map
 - end game: calculate your score (time left + health left + number of items found)
+- add shake to 'the walls are shifting!'
+- stop losing life after 1st stage
+- time goes to 5 AM
 
 HARD
-* add new layers *** plus add an arrow to move between maps
-- difficulty levels (easy/m/hard)
 - add a cheat code
-
-//////////////////////////////////////////////////////////////
-
-	if click left(check the current layer, if layer = 3, query selector the layer to display none, then display the layer 3 - 1)
-	if click right ( do the opposite, if layer is 3, query sleector display none, display layer 3 +1)
-to make alot of layers, after layer 1, can actually create all the layers using dom, then display none to all, except for layer 2.
+- make some elements moving
+- secret items
+- secret location access
 
 //////////////////////////////////////////////////////////////
 

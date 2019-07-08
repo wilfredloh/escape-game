@@ -3,31 +3,62 @@ console.log('main script running!');
 //                   LAYER 0 - ON CLICK                 //
 
 let checkMatch = function (event) {
-
-let cluesDiv = document.querySelector('.all-clues-0');
-let itemsDiv = document.querySelector('.all-items-0');
-let unlockDiv = document.querySelector('.all-unlocks-0');
-let clickingSound = document.querySelector('#clicking-sound');
-
-    // THIS IS CAUSING A RANDOM PROBLEM SOMETIMES
+   // THIS IS CAUSING A RANDOM PROBLEM SOMETIMES
+   let clickingSound = document.querySelector('#clicking-sound');
     clickingSound.play();
 
-    if (cluesDiv === event.target.parentElement) {
-        for (let i=0; i<cluesDiv.children.length; i++) {
-            if (cluesDiv.children[i] === event.target) {
-                checkClue(i);
+
+
+    // let cluesDiv = document.querySelector('.all-clues-0');
+    // let itemsDiv = document.querySelector('.all-items-0');
+    // let unlockDiv = document.querySelector('.all-unlocks-0');
+
+
+    // if (cluesDiv === event.target.parentElement) {
+    //     for (let i=0; i<cluesDiv.children.length; i++) {
+    //         if (cluesDiv.children[i] === event.target) {
+    //             checkClue(i);
+    //         }
+    //     }
+    // } else if (itemsDiv === event.target.parentElement) {
+    //     for (let i=0; i<itemsDiv.children.length; i++) {
+    //         if (itemsDiv.children[i] === event.target) {
+    //             checkItem(i, event);
+    //         }
+    //     }
+    // } else if (unlockDiv === event.target.parentElement) {
+    //     for (let i=0; i<unlockDiv.children.length; i++) {
+    //         if (unlockDiv.children[i] === event.target) {
+    //                     console.log('entered checkmatch')
+    //             checkUnlock(i, event);
+    //         }
+    //     }
+    // }
+
+
+
+    //      x = 3 represents 3 layers for now
+    for (let x=0; x<3; x++) {
+        let cluesDiv = document.querySelector('.all-clues-'+x);
+        let itemsDiv = document.querySelector('.all-items-'+x);
+        let unlockDiv = document.querySelector('.all-unlocks-'+x);
+        if (cluesDiv === event.target.parentElement) {
+            for (let i=0; i<cluesDiv.children.length; i++) {
+                if (cluesDiv.children[i] === event.target) {
+                    checkClue(i);
+                }
             }
-        }
-    } else if (itemsDiv === event.target.parentElement) {
-        for (let i=0; i<itemsDiv.children.length; i++) {
-            if (itemsDiv.children[i] === event.target) {
-                checkItem(i, event);
+        } else if (itemsDiv === event.target.parentElement) {
+            for (let i=0; i<itemsDiv.children.length; i++) {
+                if (itemsDiv.children[i] === event.target) {
+                    checkItem(i, event);
+                }
             }
-        }
-    } else if (unlockDiv === event.target.parentElement) {
-        for (let i=0; i<unlockDiv.children.length; i++) {
-            if (unlockDiv.children[i] === event.target) {
-                checkUnlock(i, event);
+        } else if (unlockDiv === event.target.parentElement) {
+            for (let i=0; i<unlockDiv.children.length; i++) {
+                if (unlockDiv.children[i] === event.target) {
+                    checkUnlock(i, event);
+                }
             }
         }
     }
@@ -69,26 +100,6 @@ let getCurrentItems = function () {
             currentItems.push(allItems['layer'+i]['item'+(j)]['name']);
             }
         }
-    }
-}
-
-    //  CHECK LIFE POINTS       //
-
-let currentLifePoints = 100;
-
-let displayLifePoints = function () {
-    let lifePointBar = document.querySelectorAll('.sidebar')[5];
-    let stopTimer = function () {
-        clearInterval(runInterval3);
-    }
-    if (currentLifePoints <= 0){
-        lifePointBar.textContent = 0;
-        setTimeout(function () {
-            gameOver(1);
-        }, 1000);
-        stopTimer();
-    } else {
-        lifePointBar.textContent = currentLifePoints;
     }
 }
 
@@ -136,7 +147,7 @@ let checkInput = function (input) {
     if (filteredInput.includes('help')) {
         helpers.hints.help();
     //              CHEAT CODES!!!!!!!
-    } else if (filteredInput === 'ch1') {
+    } else if (filteredInput === 'z') {
         for (let i=0; i<Object.keys(allItems).length; i++){
             for (let j=0; j<Object.keys(allItems['layer'+i]).length; j++) {
                 allItems['layer'+i]['item'+(j)]['found'] = true;
@@ -147,8 +158,8 @@ let checkInput = function (input) {
     } else if (filteredInput === 'stop') {
         let timerbar = document.querySelectorAll('.stat-wrap')[3];
         timerbar.style.display = 'none';
-    } else if (filteredInput = 'showall') {
-
+    } else if (filteredInput = 'fullhp') {
+        currentLifePoints = 9999;
     }
     getCurrentItems();
     displayItemBar();
