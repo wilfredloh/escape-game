@@ -1,16 +1,30 @@
 
 NEW Features/bugs:
 
-1. ADD 2/3 NEW LAYERS PLS
-2. fix left and right arrow - left 0, right 4, display none
-3. CHANGE DIFFICULTY
+background image
+
+1. add difficulty at the start (easy DONE, now to finish medium)
+2. add the next levels - level 5-8 (just the image);
+4. win game --> fix the css
+5. fix images of items
+6. easter egg game
+7. looped audio
 
 - reduce text
 - room not very obvious (first stage should be more straightforward)
 - afraid or not?
 - too many things to see
 
+- fix css
+- opacity of words
+- position of items
+- change left right icon
+- bag width
 
+-easter egg: if you burn yourself 4 times in room1 and 4 times in room 2, you can go to the beach in room 1 (pillar)
+- cheat codes: fullhp, unlock all items, unlock all maps
+
+/////////////////////
 level 0
 clues - monkey, window, painting, fire, nothing(clue 4)
 items - key, paper, chair, potion
@@ -44,7 +58,6 @@ MEDIUM
 - unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
 - hover to show a map or use map
 - end game: calculate your score (time left + health left + number of items found)
-- add shake to 'the walls are shifting!'
 - stop losing life after 1st stage
 - time goes to 5 AM
 

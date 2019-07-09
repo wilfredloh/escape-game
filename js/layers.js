@@ -2,7 +2,9 @@ console.log('layers.js running!')
 //                  BAG & MESSAGE PROMPTS
 
 // extra global variables (FUN)          //
-let burnCounter = 0;
+let burnCounter1 = 0;
+let burnCounter2 = 0;
+
 let chairCount = 0;
 let sealBroken = false;
 let sealCount = 0;
@@ -32,14 +34,14 @@ let allClues = {
             displayClue() {
                 let answer = confirm(`"A cozy fireplace. Wish I could spend more time here..." \n\n Touch fire?`);
                 if (answer) {
-                    if (burnCounter === 3) {
-                        alert('You unlocked a secret item!');
+                    if (burnCounter1 === 4) {
+                        alert('You are well-burnt!');
                     } else {
                         alert('You burned yourself!');
-                        currentLifePoints -= 20;
+                        currentLifePoints -= 15;
                         displayLifePoints();
                     }
-                    burnCounter +=1;;
+                    burnCounter1 +=1;
                 }
             }
         },
@@ -92,7 +94,7 @@ let allClues = {
         },
         clue1: {
             displayClue(event) {
-                let answer = confirm(`"This drawer looks loose. I can break it but it might hurt me..." \n\n Break drawer?`);
+                let answer = confirm(`"This drawer looks loose. I can break it but it might get hurt..." \n\n Break drawer?`);
                 if (answer){
                     alert(`[Broke drawer] \n\n Your life decreased by 10! \n\n"There's a book inside..."`);
                     alert(`You picked up book!`);
@@ -117,15 +119,14 @@ let allClues = {
             displayClue() {
                 let answer = confirm(`"A cozy fireplace. Wish I could spend more time here..." \n\n Touch fire?`);
                 if (answer) {
-                    if (burnCounter === 3) {
-                        alert('You unlocked a secret item!');
+                    if (burnCounter2 === 4) {
+                        alert('You are well-burnt!');
                     } else {
                         alert('You burned yourself!');
-                        currentLifePoints -= 20;
+                        currentLifePoints -= 15;
                         displayLifePoints();
                     }
-                    burnCounter +=1;;
-                }
+                } burnCounter2 +=1;;
             }
         },
         clue1: {
@@ -213,12 +214,12 @@ let allItems = {
             name: 'note',
             found: false,
             displayItem(event) {
-                alert(`You picked up a note!`);
+                alert(`You picked up an old scroll!`);
                 this.found = true;
                 event.target.style.display = 'none';
             },
             useItem() {
-                alert(`You need to find 3 medallions to unlock the seals!`)
+                alert(`There are three seals, each guarding the three entrances you see... \n\n Each seal is protected by a sacred medallion. Find them all to break the seals... `)
             }
         },
         item1: {
@@ -255,7 +256,7 @@ let allItems = {
                     chandelier.displayUnlocked();
                     this.found = false;
                 } else {
-                    alert(`Cannot use ${this.name}!`)
+                    alert(`A heavy book. Looks like I can throw it at something...`)
                 }
             }
         },
@@ -426,16 +427,21 @@ let allUnlockables = {
                 let answer = confirm(`"There's a button on the wall... \n\n\ Press button?"`);
                 if (lamplever) {
                     if(answer) {
-                        alert(`The walls are shifting!!!`);
-                        let gameCont0 = document.querySelector('.game-container-0');
-                        gameCont0.classList.add('shake1');
-                        setTimeout(function(){
-                            setMap1();
-                            currentLayer +=1;
-                            gameCont0.classList.remove('shake1');
-                        }, 2000);
-
-                        event.target.style.display = 'none';
+                        if(difficulty === 'easy') {
+                            winGame();
+                        } else {
+                            let wallsMovingSound = document.querySelector('#changelevel-sound');
+                            wallsMovingSound.play();
+                            alert(`The walls are shifting!!!`);
+                            let gameCont0 = document.querySelector('.game-container-0');
+                            gameCont0.classList.add('shake1');
+                            setTimeout(function(){
+                                setMap1();
+                                currentLayer +=1;
+                                gameCont0.classList.remove('shake1');
+                            }, 2000);
+                            event.target.style.display = 'none';
+                        }
                     }
                 } else {
                     if (answer){
@@ -452,17 +458,24 @@ let allUnlockables = {
             found: false,
             displayLocked(number, event) {
                 let answer = prompt(`"The painting looks off..."\n\n Rotate it clockwise by __? (Type in a number)`);
-                if (answer === '231'){
+                if (answer === '249'){
                     let answer2 = confirm(`"The painting revealed a lever!" \n\n Pull lever?`);
                     if (answer2 && sealBroken) {
-                        let gameCont1 = document.querySelector('.game-container-1');
-                        gameCont1.classList.add('shake1');
-                        setTimeout(function(){
-                            gameCont1.classList.remove('shake1');
-                            alert('The main door is now unlocked! There are new places to explore!');
-                            event.target.style.display = 'none';
-                            maxLayers = 8;
-                        }, 2000);
+                        if(difficulty === 'medium'){
+                            winGame();
+                        } else {
+                            let wallsMovingSound = document.querySelector('#changelevel-sound');
+                            wallsMovingSound.play();
+                            let gameCont1 = document.querySelector('.game-container-1');
+                            gameCont1.classList.add('shake1');
+                            setTimeout(function(){
+                                gameCont1.classList.remove('shake1');
+                                alert('The main door is now unlocked! There are new places to explore!');
+                                event.target.style.display = 'none';
+                            }, 2000);
+                            maxLayer = 7;
+                            setMap4();
+                        }
                     } else if (answer2) {
                         alert(`"Nothing happened..."`);
                     }
@@ -512,6 +525,22 @@ let allUnlockables = {
             displayLocked() {
                 alert(`"The seals are preventing you from entering..."`);
             }
+        },
+        unlockable4: {
+            name: 'easteregg',
+            unlocked: false,
+            found: false,
+            displayUnlocked(number, event) {
+                //nothing here...
+            },
+            displayLocked() {
+                if (burnCounter1 >=4 && burnCounter2>=4) {
+                    alert(`"You found the easter egg! Congratulations, you deserve a break. Get outta here!"`);
+                    winEasterGame();
+                } else {
+                    alert(`"There's a writing on the pillar." \n\n When flames from the extremes converge, the wanderer embarks on a new beginning.`);
+                }
+            }
         }
     },
     layer2: {
@@ -557,9 +586,10 @@ let allUnlockables = {
             displayLocked(number, event) {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
                 if (answer && chairCount === 111) {
-                    alert(`You unlocked the code! \n\n 2 3 1`);
-                } else {
+                    alert(`The rotation in reverse is: \n\n 9 4 2`);
+                } else if (answer) {
                     chairCount = 0;
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
                 }
             }
         },
@@ -575,6 +605,9 @@ let allUnlockables = {
                 if (answer) {
                     chairCount = 0;
                     chairCount += 1;
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
+                } else if (answer){
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
                 }
             }
         },
@@ -589,8 +622,10 @@ let allUnlockables = {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
                 if (answer && chairCount === 11) {
                     chairCount += 100;
-                } else {
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
+                } else if (answer) {
                     chairCount = 0;
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
                 }
             }
         },
@@ -605,8 +640,10 @@ let allUnlockables = {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
                 if (answer && chairCount === 1) {
                     chairCount += 10;
-                } else {
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
+                } else if (answer) {
                     chairCount = 0;
+                    alert(`You sat on the chair.... \n\nNothing happened.`);
                 }
             }
         }

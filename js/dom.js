@@ -3,6 +3,8 @@ console.log('dom.js running!')
 let currentLayer = 0;
 let maxLayer = 3;
 
+let difficulty = '';
+
 /////////////////////////////////////////////////////////
 //              DOM LAYER 0                   //
 /////////////////////////////////////////////////////////
@@ -19,7 +21,16 @@ let startGame0 = document.querySelectorAll('.difficulty')[0];
 let startGame1 = document.querySelectorAll('.difficulty')[1];
 let startGame2 = document.querySelectorAll('.difficulty')[2];
 
-let startGame = function () {
+let setDifficulty = function (event){
+    let playerDiff = event.target.textContent.toLowerCase();
+    difficulty = playerDiff;
+}
+
+let startGame = function (event) {
+    // let body = document.querySelector('body');
+    // body.style.backgroundImage = 'none';
+    // body.style.backgroundColor = 'black';
+    setDifficulty(event);
     //leave this out for now... there is a global variable that does the same thing.. if all ok in a few tries, can delete below
     // let divMainContainer = document.querySelector('.main-container');
     let divIntroContainer = document.querySelector('.intro-container');
@@ -88,6 +99,7 @@ let startGame = function () {
         divStatsContainer.appendChild(stats);
     }
     divMainContainer.appendChild(divStatsContainer)
+    document.querySelectorAll('.sidebar')[3].classList.add('bag-item');
 
     // creating CLASS: SIDEBAR                      //
     let statsArray = ['Action', '', 'Bag', '', 'Life', '100', 'Time', ''];
@@ -130,6 +142,12 @@ let startGame = function () {
     divStatsContainer.classList.add('blur');
     storyContainer.style.display = 'block';
     storyContainer.addEventListener('click',removeStory)
+
+    // hiding item 0-0 as it is found in an unlockable
+    let item0Zero = document.querySelector('.item-0-0');
+    item0Zero.style.display = 'none';
+    let item0One = document.querySelector('.item-0-1');
+    item0One.style.display = 'none';
 }
 //              END MAIN DOM FUNCTION            //
 
@@ -152,7 +170,7 @@ let setMap1 = function () {
     //      setting starting variables      //
     let totalClues1 = 4;
     let totalItems1 = 2;
-    let totalUnlocks1 = 4;
+    let totalUnlocks1 = 5;
     let divMainContainer = document.querySelector('.main-container');
 
     let divGameContainer1 = document.createElement('div');
@@ -198,6 +216,7 @@ let setMap1 = function () {
     divGameContainer1.appendChild(unlockDiv1);
 
     divMainContainer.prepend(divGameContainer1);
+
     //      adding arrows to switch between maps     //
     let navArrowLeft = document.createElement('img');
     let navArrowRight = document.createElement('img');
@@ -339,8 +358,13 @@ let setMap3 = function () {
     gameContainer3.style.display = 'none';
 
     //extra hiding items
-    let item0 = document.querySelector('.item-3-0');
-    item0.style.display = 'none';
+    let item2Zero = document.querySelector('.item-2-0');
+    item2Zero.style.display = 'none';
+    let item2Two = document.querySelector('.item-2-2');
+    item2Two.style.display = 'none';
+    let item3Zero = document.querySelector('.item-3-0');
+    item3Zero.style.display = 'none';
+
 
 }
 //                END OF LAYER 3                       //
@@ -348,3 +372,48 @@ let setMap3 = function () {
 /////////////////////////////////////////////////////////
 //              DOM LAYER 4                   //
 /////////////////////////////////////////////////////////
+let setMap4 = function () {
+
+    let divMainContainer = document.querySelector('.main-container');
+    let divGameContainer4 = document.createElement('div');
+    divGameContainer4.classList.add('game-container-4');
+    divGameContainer4.classList.add('all-game-containers');
+    divMainContainer.prepend(divGameContainer4);
+    let gameContainer4 = document.querySelector('.game-container-4');
+    gameContainer4.style.display = 'none';;
+    setMap5();
+    setMap6();
+    setMap7();
+}
+
+let setMap5 = function () {
+
+    let divMainContainer = document.querySelector('.main-container');
+    let divGameContainer5 = document.createElement('div');
+    divGameContainer5.classList.add('game-container-5');
+    divGameContainer5.classList.add('all-game-containers');
+    divMainContainer.prepend(divGameContainer5);
+    let gameContainer5 = document.querySelector('.game-container-5');
+    gameContainer5.style.display = 'none';;
+}
+
+let setMap6 = function () {
+
+    let divMainContainer = document.querySelector('.main-container');
+    let divGameContainer6 = document.createElement('div');
+    divGameContainer6.classList.add('game-container-6');
+    divGameContainer6.classList.add('all-game-containers');
+    divMainContainer.prepend(divGameContainer6);
+    let gameContainer6 = document.querySelector('.game-container-6');
+    gameContainer6.style.display = 'none';;
+}
+let setMap7 = function () {
+
+    let divMainContainer = document.querySelector('.main-container');
+    let divGameContainer7 = document.createElement('div');
+    divGameContainer7.classList.add('game-container-7');
+    divGameContainer7.classList.add('all-game-containers');
+    divMainContainer.prepend(divGameContainer7);
+    let gameContainer7 = document.querySelector('.game-container-7');
+    gameContainer7.style.display = 'none';;
+}

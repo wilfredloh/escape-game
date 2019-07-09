@@ -8,8 +8,6 @@ let checkMatch = function (event) {
     clickingSound.volume = 0.1;
     clickingSound.play();
 
-
-
     // let cluesDiv = document.querySelector('.all-clues-0');
     // let itemsDiv = document.querySelector('.all-items-0');
     // let unlockDiv = document.querySelector('.all-unlocks-0');
@@ -160,6 +158,7 @@ let checkInput = function (input) {
                     allUnlockables['layer'+i]['unlockable'+(j)]['found'] = true;
                 }
             }
+            sealBroken = true;
             alert('All maps unlocked!');
         } else if (filteredInput === 'stop') {
             let timerbar = document.querySelectorAll('.stat-wrap')[3];
@@ -178,7 +177,7 @@ let useItem = function (event) {
     let dataId = event.target.dataset.id;
     for (let i=0; i<currentItems.length; i++){
         if (dataId === currentItems[i]){
-            console.log(dataId)
+            console.log(dataId);
             for (let j=0; j<Object.keys(allItems).length; j++){
                 // need to find out why the method below doesn't work to replace k's length
                 //Object.keys(allItems['layer'+k]).length

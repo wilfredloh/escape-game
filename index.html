@@ -3,6 +3,7 @@
 <head>
     <title>Survival Game</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/layers.css">
     <link rel="stylesheet" href="css/items.css">
@@ -34,8 +35,25 @@
         </div>
 
         <div class="gameOver-container">
+            <div class="gameOver-text"> YOU ARE</div>
+            <!-- <div class="gameOver-text"> </div> -->
+        </div>
+
+        <div class="gameOver-container2">
             <div class="gameOver-text"> GAME</div>
             <div class="gameOver-text"> OVER</div>
+        </div>
+
+        <div class="winGame-easy-container">
+            <div class="win-easy-text">Try challenging yourself the next time you play...</div>
+        </div>
+
+        <div class="winGame-medium-container">
+            <div class="win-easy-text">Nice work! Try finishing hard mode next time.</div>
+        </div>
+
+        <div class="winGame-easter-container">
+            <div class="win-easter-text">The good life...</div>
         </div>
 <!--
         <div class="game-container-0 all-game-containers">
@@ -86,11 +104,17 @@
     <audio id="clicking-sound">
         <source src="audio/button3.mp3" type="audio/mpeg">
     </audio>
+    <audio id="changelevel-sound">
+        <source src="audio/changelevel.mp3" type="audio/mpeg">
+    </audio>
     <audio id="gameover-time-sound">
-        <source src="audio/gameover.mp3" type="audio/mpeg">
+        <source src="audio/gameover-time.mp3" type="audio/mpeg">
     </audio>
     <audio id="gameover-life-sound">
-        <source src="audio/gameover2.mp3" type="audio/mpeg">
+        <source src="audio/gameover-life.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="winGame-sound">
+        <source src="audio/easywin.mp3" type="audio/mpeg">
     </audio>
     <audio id="bg-music">
         <source src="audio/background.mp3" type="audio/mpeg">

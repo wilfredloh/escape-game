@@ -12,6 +12,7 @@ let toggleMusic = function () {
     bgMusicButton = document.querySelector('#bg-button');
     if (musicToggle === false) {
         backgroundMusic.play();
+        backgroundMusic.loop = true;
         // bgMusicButton.src = "./images/icons/sound-off.png";
 
         musicToggle = true;
@@ -29,11 +30,17 @@ bgMusicButton.addEventListener('click', toggleMusic);
 /////////////////////////////////////////////////////////
 
 let showDifficulty = function () {
+    let body = document.querySelector('body');
+    body.style.backgroundImage = 'none';
+    body.style.backgroundColor = 'black';
+
     let introContainer = document.querySelector('.intro-container');
     introContainer.style.display = 'none';
 
     let diffContainer = document.querySelector('.difficulty-container');
     diffContainer.style.display = 'block';
+
+
 }
 
 startButton.addEventListener('click', showDifficulty);
@@ -55,23 +62,78 @@ let gameOver = function (number) {
     let divGameContainer = document.querySelector('.game-container-0');
     let divStatsContainer = document.querySelector('.stats-container');
     let gameOverContainer = document.querySelector('.gameOver-container');
+    let gameOverContainer2 = document.querySelector('.gameOver-container2');
     let gameOverLifeSound = document.querySelector('#gameover-life-sound');
     let gameOverTimeSound = document.querySelector('#gameover-time-sound');
 
     console.log('entered gameover function');
     if (number === 1){
         // gameOverContainer.style.backgroundImage = 'none';
-        gameOverContainer.classList.add('gameOver-container2');
-        gameOverTimeSound.play();
-    } else {
         gameOverContainer.classList.add('gameOver-container');
+        gameOverContainer.style.display = 'flex';
         gameOverLifeSound.play();
+        gameOverContainer.addEventListener('click', function(){
+        location.reload();
+    });
+    } else {
+        gameOverContainer2.classList.add('gameOver-container2');
+        gameOverContainer2.style.display = 'flex';
+        gameOverTimeSound.play();
+        gameOverContainer2.addEventListener('click', function(){
+        location.reload();
+    });
     }
+    divGameContainer.classList.add('blur1');
+    divStatsContainer.classList.add('blur1');
+}
+/////////////////////////////////////////////////////////
+//               WIN GAME POP UP                //
+/////////////////////////////////////////////////////////
+let winGame = function () {
+    let divGameContainer = document.querySelector('.game-container-0');
+    let divStatsContainer = document.querySelector('.stats-container');
+    let easyGameCont = document.querySelector('.winGame-easy-container');
+    let medGameCont = document.querySelector('.winGame-medium-container');
+    let easyGameSound = document.querySelector('#winGame-sound');
+
+    if (difficulty === 'easy') {
+        easyGameCont.classList.add('winGame-easy-container');
+        easyGameSound.play();
+
+        divGameContainer.classList.add('blur1');
+        divStatsContainer.classList.add('blur1');
+        easyGameCont.style.display = 'flex';
+        easyGameCont.addEventListener('click', function(){
+            location.reload();
+        });
+    } else if (difficulty === 'medium') {
+        medGameCont.classList.add('winGame-medium-container');
+        easyGameSound.play();
+
+        divGameContainer.classList.add('blur1');
+        divStatsContainer.classList.add('blur1');
+        medGameCont.style.display = 'flex';
+        medGameCont.addEventListener('click', function(){
+            location.reload();
+        });
+    } else {
+
+    }
+}
+
+let winEasterGame = function () {
+    let divGameContainer = document.querySelector('.game-container-0');
+    let divStatsContainer = document.querySelector('.stats-container');
+    let easterGameCont = document.querySelector('.winGame-easter-container');
+    let easterGameSound = document.querySelector('#winGame2-sound');
+
+    easterGameCont.classList.add('winGame-easter-container');
+    // easterGameSound.play();
 
     divGameContainer.classList.add('blur1');
     divStatsContainer.classList.add('blur1');
-    gameOverContainer.style.display = 'flex';
-    gameOverContainer.addEventListener('click', function(){
+    easterGameCont.style.display = 'flex';
+    easterGameCont.addEventListener('click', function(){
         location.reload();
     });
 }
@@ -94,9 +156,9 @@ let runInterval2; // AM/PM
 let runInterval3; //life points
 
 let runCountdown = function () {
-    runInterval1 = setInterval(startTimer1, 120000);
-    runInterval2 = setInterval(startTimer2, 60000);
-    runInterval3 = setInterval(decreaseLifePoints, 5000);
+    runInterval1 = setInterval(startTimer1, 90000);
+    runInterval2 = setInterval(startTimer2, 45000);
+    runInterval3 = setInterval(decreaseLifePoints, 10000);
 }
 
 storyContainer.addEventListener('click', runCountdown);
@@ -198,7 +260,6 @@ console.log('dom.js running!')
 
 
 let decreaseMap = function (){
-    debugger;
     for (let i = 0; i<=maxLayer; i++) {
         let gameContainerToHide = document.querySelector('.game-container-' + currentLayer);
         let gameContainerToShow = document.querySelector('.game-container-' + (currentLayer-1));
@@ -215,7 +276,6 @@ let decreaseMap = function (){
 }
 
 let increaseMap = function (){
-    debugger;
     for (let i = 0; i<=maxLayer; i++) {
         let gameContainerToHide = document.querySelector('.game-container-' + currentLayer);
         let gameContainerToShow = document.querySelector('.game-container-' + (currentLayer+1));
