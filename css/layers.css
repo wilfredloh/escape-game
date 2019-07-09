@@ -24,7 +24,7 @@
 
 		/*CLICKS AND NAVIGATION ARROWS		*/
 .click {
-	opacity: 0;
+	/*opacity: 0;*/
 	width: 80px;
 	height: 80px;
 }
@@ -45,7 +45,7 @@
 	width: 50px;
 	height: 50px;
 }
-/*        LAYER 0 HERE			 */
+/*//////////////////////////////////////////////////////////////////////////												        LAYER 0 HERE														 */
 
 .clue-0-0 {
 	position: absolute;
@@ -112,7 +112,7 @@
 	top: 45%;
 	left: 67%;
 }
-/*        LAYER 1 HERE			 */
+/*//////////////////////////////////////////////////////////////////////////												        LAYER 1 HERE														 */
 
 .clue-1-0 {
 	position: absolute;
@@ -164,82 +164,95 @@
 	top: 87%;
 	left: 70%;
 }
-/*        LAYER 2 HERE			 */
+/*//////////////////////////////////////////////////////////////////////////												        LAYER 2 HERE														 */
 
 .clue-2-0 {
 	position: absolute;
-	top: 50%;
-	right: 20%;
-	color: orange;
+	top: 74%;
+	left: 70%;
 }
 .clue-2-1 {
 	position: absolute;
-	left: 10%;
-	right: 30%;
-	color: green;
+	top: 75%;
+	left: 47%;
 }
 .clue-2-2 {
 	position: absolute;
-	left: 30%;
-	right: 50%;
-	color: blue;
+	top: 35%;
+	left: 15%;
 }
-.item-2-0 {
+/*.item-2-0 { 				item found in clue 1, layer 2
 	position: absolute;
-	top: 0%;
-	right: 0%;
-	color: green;
-}
+	top: 75%;
+	left: 47%;
+}*/
 .item-2-1 {
 	position: absolute;
-	top: 30%;
-	right: 80%;
-	color: green;
+	top: 92%;
+	left: 86%;
 }
+/*.item-2-2 { 				item found in unlockable 0, layer 2
+	position: absolute;
+	top: 65%;
+	left: 25%;
+}*/
 .unlock-2-0 {
 	position: absolute;
-	top: 35%;
-	right: 45%;
-	color: red;
-}
-.unlock-2-1 {
-	position: absolute;
-	top: 90%;
-	right: 70%;
-	color: blue;
+	top: 65%;
+	left: 25%;
 }
 
-/*        LAYER 3 HERE			 */
+/*//////////////////////////////////////////////////////////////////////////												        LAYER 3 HERE														 */
 
 .clue-3-0 {
 	position: absolute;
-	top: 50%;
-	right: 20%;
-	color: orange;
+	top: 74%;
+	left: 46%;
+}
+.clue-3-1 {
+	position: absolute;
+	top: 54%;
+	left: 85%;
 }
 .item-3-0 {
 	position: absolute;
-	top: 0%;
-	right: 0%;
-	color: green;
+	top: 93%;
+	left: 47%;
 }
 .item-3-1 {
 	position: absolute;
-	top: 30%;
-	right: 80%;
-	color: green;
+	top: 85%;
+	left: 72%;
+}
+.item-3-2 {
+	position: absolute;
+	top: 82%;
+	left: 15%;
 }
 .unlock-3-0 {
 	position: absolute;
-	top: 35%;
-	right: 45%;
-	color: red;
+	top: 15%;
+	left: 47%;
 }
 .unlock-3-1 {
 	position: absolute;
 	top: 90%;
-	right: 70%;
-	color: blue;
+	left: 10%;
+}
+.unlock-3-2 {
+	position: absolute;
+	top: 80%;
+	left: 35%;
+}
+.unlock-3-3 {
+	position: absolute;
+	top: 80%;
+	left: 62%;
+}
+.unlock-3-4 {
+	position: absolute;
+	top: 90%;
+	left: 85%;
 }
 
-/*        END			 */
+/*//////////////////////////////////////////////////////////////////////////												        END 														 */

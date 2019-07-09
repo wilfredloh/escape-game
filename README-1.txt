@@ -25,7 +25,7 @@ unlocks - [seal 1, seal 2, seal 3], painting/button--> unlock remaining maps
 
 level 2
 clues - shelf (book inside), sofa (rest?), painting(hint for chair)
-items - books (to throw), medallion A, medallion B
+items - books (to throw), medallion 1, medallion 2
 unlocks - desk (key)
 
 level 3

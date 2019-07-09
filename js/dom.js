@@ -150,9 +150,9 @@ let setMap1 = function () {
     let gameContainer0 = document.querySelector('.game-container-0');
     gameContainer0.style.display = 'none';
     //      setting starting variables      //
-    let totalClues1 = 5;
-    let totalItems1 = 5;
-    let totalUnlocks1 = 5;
+    let totalClues1 = 4;
+    let totalItems1 = 2;
+    let totalUnlocks1 = 4;
     let divMainContainer = document.querySelector('.main-container');
 
     let divGameContainer1 = document.createElement('div');
@@ -221,9 +221,9 @@ let setMap1 = function () {
 let setMap2 = function () {
 
     //      setting starting variables      //
-    let totalClues2 = 5;
-    let totalItems2 = 5;
-    let totalUnlocks2 = 5;
+    let totalClues2 = 3;
+    let totalItems2 = 3;
+    let totalUnlocks2 = 1;
     let divMainContainer = document.querySelector('.main-container');
 
     let divGameContainer2 = document.createElement('div');
@@ -286,8 +286,8 @@ let setMap2 = function () {
 let setMap3 = function () {
 
     //      setting starting variables      //
-    let totalClues3 = 5;
-    let totalItems3 = 5;
+    let totalClues3 = 2;
+    let totalItems3 = 3;
     let totalUnlocks3 = 5;
     let divMainContainer = document.querySelector('.main-container');
 
@@ -337,6 +337,11 @@ let setMap3 = function () {
 
     let gameContainer3 = document.querySelector('.game-container-3');
     gameContainer3.style.display = 'none';
+
+    //extra hiding items
+    let item0 = document.querySelector('.item-3-0');
+    item0.style.display = 'none';
+
 }
 //                END OF LAYER 3                       //
 

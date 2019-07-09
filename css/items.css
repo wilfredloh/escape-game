@@ -22,9 +22,9 @@ img:active {
 
 .shake1 {
   /* Start the shake animation and make the animation last for  seconds */
-  animation: shake 2s;
+  animation: shake 0.5s;
    /*When the animation is finished, start again */
-  animation-iteration-count: 10;
+  animation-iteration-count: 50;
 }
 
 @keyframes shake {
@@ -43,6 +43,7 @@ img:active {
 
 /*			all items here 				*/
 
+/*LAYER 0*/
 .item-key {
 	content: url("https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/key.png");
 }
@@ -59,10 +60,32 @@ img:active {
 	content: url("https://soappotions.com/wp-content/uploads/2017/10/round.jpg");
 }
 
+/*LAYER 1*/
 .item-potion1 {
 	content: url("https://soappotions.com/wp-content/uploads/2017/10/round.jpg");
 }
 
 .item-note {
 	content: url("https://comps.canstockphoto.com/old-map-treasure-island-3d-vector-icon-clipart-vector_csp44616457.jpg");
+}
+/*LAYER 2*/
+.item-medallion1 {
+
+}
+.item-medallion2 {
+
+}
+.book {
+
+}
+/*LAYER 3*/
+.item-medallion3 {
+
+}
+
+.item-potion2 {
+	content: url("https://soappotions.com/wp-content/uploads/2017/10/round.jpg");
+}
+.item-key2 {
+	content: url("https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/key.png");
 }

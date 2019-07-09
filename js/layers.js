@@ -5,6 +5,7 @@ console.log('layers.js running!')
 let burnCounter = 0;
 let chairCount = 0;
 let sealBroken = false;
+let sealCount = 0;
 
 //              ALL MESSAGES BELOW               //
 let allClues = {
@@ -90,14 +91,15 @@ let allClues = {
             }
         },
         clue1: {
-            displayClue() {
+            displayClue(event) {
                 let answer = confirm(`"This drawer looks loose. I can break it but it might hurt me..." \n\n Break drawer?`);
                 if (answer){
-                    alert(`[Broke drawer]\n\n"There's a book inside..."`);
+                    alert(`[Broke drawer] \n\n Your life decreased by 10! \n\n"There's a book inside..."`);
                     alert(`You picked up book!`);
                     currentLifePoints -= 10;
                     displayLifePoints();
                     allItems['layer2']['item0']['found'] = true;
+                    event.target.style.display = 'none';
                 }
             }
         },
@@ -105,7 +107,7 @@ let allClues = {
             displayClue() {
                 let answer = confirm(`"Another painting. There are some words at the bottom..." \n\n Take a closer look?`);
                 if (answer){
-                    alert(`Hint: four people, four chairs, four seats. \n\n Eeny, meeny, miny, two\nCatch four tiger by the toe\nIf he hollers let three go,\n Eeny, meeny, miny, one`);
+                    alert(`Hint: four people, four chairs, four seats. \n\nEeny, meeny, miny, two\nCatch four tiger by the toe\nIf he hollers let three go,\nEeny, meeny, miny, one`);
                 }
             }
         }
@@ -128,7 +130,7 @@ let allClues = {
         },
         clue1: {
             displayClue() {
-                alert(`"It's four floors high. Don't think I can survive that..." \n\n Take a closer look?`);
+                alert(`"I'm high up. Don't think I can survive the fall from here..."`);
             }
         }
     }
@@ -243,15 +245,22 @@ let allItems = {
             name: 'book',
             found: false,
             displayItem(event) {
-                // nothing here
+                alert(`Don't click me!`);
             },
             useItem() {
-                alert(`You threw the book!`);
-                this.found = false;
+                let chandelier = allUnlockables['layer3']['unlockable0'];
+                if (chandelier['found']){
+                    chandelier['unlocked'] = true;
+                    alert(`You threw the book!`);
+                    chandelier.displayUnlocked();
+                    this.found = false;
+                } else {
+                    alert(`Cannot use ${this.name}!`)
+                }
             }
         },
         item1: {
-            name: 'medallion1',
+            name: 'medallion1', //find in map layer 2
             found: false,
             displayItem(event) {
                 alert(`You found a medallion!`);
@@ -259,27 +268,38 @@ let allItems = {
                 event.target.style.display = 'none';
             },
             useItem() {
-                alert(`You used the medallion. A seal is broken!`);
-                this.found = false;
+                let medallion1 = allUnlockables['layer1']['unlockable1'];
+                if (medallion1['found']){
+                    alert(`You used: ${this.name}! A seal is broken!`);
+                    this['found'] = false;
+                    medallion1['unlocked'] = true;
+                } else {
+                    alert(`Cannot use ${this.name}!`)
+                }
             }
         },
         item2: {
-            name: 'medallion2',
+            name: 'medallion2', // in layer 2 in desk (unlockable 0)
             found: false,
             displayItem(event) {
-                alert(`You found a medallion!`);
+                alert(`"You found a medallion!"`);
                 this.found = true;
-                event.target.style.display = 'none';
             },
             useItem() {
-                alert(`You used the medallion. A seal is broken!`);
-                this.found = false;
+                let seal2 = allUnlockables['layer1']['unlockable2'];
+                if (seal2['found']){
+                    alert(`You used: ${this.name}! A seal is broken!`);
+                    this['found'] = false;
+                    seal2['unlocked'] = true;
+                } else {
+                    alert(`Cannot use ${this.name}!`)
+                }
             }
         }
     },
     layer3: {
         item0: {
-            name: 'medallion3',
+            name: 'medallion3', //find in map layer 3
             found: false,
             displayItem(event) {
                 alert(`You found a medallion!`);
@@ -287,8 +307,14 @@ let allItems = {
                 event.target.style.display = 'none';
             },
             useItem() {
-                alert(`You used the medallion. A seal is broken!`);
-                this.found = false;
+                let medallion3 = allUnlockables['layer1']['unlockable3'];
+                if (medallion3['found']){
+                    alert(`You used: ${this.name}! A seal is broken!`);
+                    this['found'] = false;
+                    medallion3['unlocked'] = true;
+                } else {
+                    alert(`Cannot use ${this.name}!`)
+                }
             }
         },
         item1: {
@@ -306,6 +332,25 @@ let allItems = {
                     currentLifePoints += 25;
                     displayLifePoints();
                     this.found = false;
+                }
+            }
+        },
+        item2: {
+            name: 'key2',
+            found: false,
+            displayItem(event) {
+                alert(`You found a key!`);
+                this.found = true;
+                event.target.style.display = 'none';
+            },
+            useItem() {
+                let desk = allUnlockables['layer2']['unlockable0'];
+                if (desk.found) {
+                    alert(`You used key to open the desk!`);
+                    desk.unlocked = true;
+                    this.found = false;
+                } else {
+                    alert('Cannot use key!');
                 }
             }
         }
@@ -418,10 +463,11 @@ let allUnlockables = {
                             event.target.style.display = 'none';
                             maxLayers = 8;
                         }, 2000);
-
-                    } else {
+                    } else if (answer2) {
                         alert(`"Nothing happened..."`);
                     }
+                } else if (answer){
+                    alert(`"Nothing happened..."`);
                 }
             }
         },
@@ -474,7 +520,6 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayUnlocked(number, event) {
-                alert(`"You found a medallion!"`);
                 // UNLOCKABLE TO FIND ITEM -- ('MEDALLION2')
                 allItems['layer2']['item2'].displayItem();
                 event.target.style.display = 'none';
@@ -493,8 +538,10 @@ let allUnlockables = {
                 alert(`The chandelier rattled and dropped something on the floor!`);
                 // UNLOCKABLE TO FIND ITEM -- ('MEDALLION3')
                 // find medallion3 and display block
-                document.querySelector('.item-medallion3').style.display = 'block';
-                event.target.style.display = 'none';
+                let medallion3Block = document.querySelector('.item-3-0');
+                medallion3Block.style.display = 'block';
+                let chandelier = document.querySelector('.unlock-3-0');
+                chandelier.style.display = 'none';
             },
             displayLocked(number, event) {
                 alert(`"There's something shiny on the chandelier. Maybe if I had something to throw at it..."`);
@@ -521,10 +568,7 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayUnlocked(number, event) {
-                alert(`"You found a medallion!"`);
-                // UNLOCKABLE TO FIND ITEM -- ('MEDALLION2')
-                allItems['layer2']['item2'].displayItem();
-                event.target.style.display = 'none';
+
             },
             displayLocked(number, event) {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
@@ -539,10 +583,7 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayUnlocked(number, event) {
-                alert(`"You found a medallion!"`);
-                // UNLOCKABLE TO FIND ITEM -- ('MEDALLION2')
-                allItems['layer2']['item2'].displayItem();
-                event.target.style.display = 'none';
+
             },
             displayLocked(number, event) {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
@@ -558,10 +599,7 @@ let allUnlockables = {
             unlocked: false,
             found: false,
             displayUnlocked(number, event) {
-                alert(`"You found a medallion!"`);
-                // UNLOCKABLE TO FIND ITEM -- ('MEDALLION2')
-                allItems['layer2']['item2'].displayItem();
-                event.target.style.display = 'none';
+
             },
             displayLocked(number, event) {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
@@ -604,7 +642,8 @@ let checkSeal = function () {
     let seal2 = allUnlockables['layer1']['unlockable2']['unlocked'];
     let seal3 = allUnlockables['layer1']['unlockable3']['unlocked'];
 
-    if (seal1 && seal2 && seal3) {
+    sealCount +=1;
+    if (seal1 && seal2 && seal3 && sealCount >=3) {
         sealBroken = true;
         alert('You broke all the seals!')
     }

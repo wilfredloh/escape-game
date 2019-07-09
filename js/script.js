@@ -37,14 +37,14 @@ let checkMatch = function (event) {
     // }
 
     //      x = 3 represents 3 layers for now
-    for (let x=0; x<3; x++) {
+    for (let x=0; x<4; x++) {
         let cluesDiv = document.querySelector('.all-clues-'+x);
         let itemsDiv = document.querySelector('.all-items-'+x);
         let unlockDiv = document.querySelector('.all-unlocks-'+x);
         if (cluesDiv === event.target.parentElement) {
             for (let i=0; i<cluesDiv.children.length; i++) {
                 if (cluesDiv.children[i] === event.target) {
-                    checkClue(i);
+                    checkClue(i, event);
                 }
             }
         } else if (itemsDiv === event.target.parentElement) {
@@ -68,8 +68,8 @@ let checkMatch = function (event) {
 
 //               CHECK CLUE / ITEM / UNLOCK              //
 
-let checkClue = function (number) {
-    allClues[`layer${currentLayer}`][`clue${number}`].displayClue();
+let checkClue = function (number, event) {
+    allClues[`layer${currentLayer}`][`clue${number}`].displayClue(event);
 }
 
 let checkItem = function (number, event) {
