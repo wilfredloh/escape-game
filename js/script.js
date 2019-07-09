@@ -5,6 +5,7 @@ console.log('main script running!');
 let checkMatch = function (event) {
    // THIS IS CAUSING A RANDOM PROBLEM SOMETIMES
    let clickingSound = document.querySelector('#clicking-sound');
+    clickingSound.volume = 0.1;
     clickingSound.play();
 
 
@@ -34,8 +35,6 @@ let checkMatch = function (event) {
     //         }
     //     }
     // }
-
-
 
     //      x = 3 represents 3 layers for now
     for (let x=0; x<3; x++) {
@@ -147,20 +146,29 @@ let checkInput = function (input) {
     if (filteredInput.includes('help')) {
         helpers.hints.help();
     //              CHEAT CODES!!!!!!!
-    } else if (filteredInput === 'z') {
+    } else if (filteredInput === 'i') {
         for (let i=0; i<Object.keys(allItems).length; i++){
             for (let j=0; j<Object.keys(allItems['layer'+i]).length; j++) {
                 allItems['layer'+i]['item'+(j)]['found'] = true;
-                allUnlockables['layer'+i]['unlockable'+(j)]['unlocked'] = true;
-                allUnlockables['layer'+i]['unlockable'+(j)]['found'] = true;
             }
         }
-    } else if (filteredInput === 'stop') {
-        let timerbar = document.querySelectorAll('.stat-wrap')[3];
-        timerbar.style.display = 'none';
-    } else if (filteredInput = 'fullhp') {
-        currentLifePoints = 9999;
-    }
+        alert('All items unlocked!');
+        } else if (filteredInput === 'u') {
+            for (let i=0; i<Object.keys(allUnlockables).length; i++){
+                for (let j=0; j<Object.keys(allUnlockables['layer'+i]).length; j++) {
+                    allUnlockables['layer'+i]['unlockable'+(j)]['unlocked'] = true;
+                    allUnlockables['layer'+i]['unlockable'+(j)]['found'] = true;
+                }
+            }
+            alert('All maps unlocked!');
+        } else if (filteredInput === 'stop') {
+            let timerbar = document.querySelectorAll('.stat-wrap')[3];
+            timerbar.style.display = 'none';
+            alert('Time stopped!');
+        } else if (filteredInput = 'hp') {
+            currentLifePoints = 9999;
+            alert('Max HP!');
+        }
     getCurrentItems();
     displayItemBar();
 }
@@ -174,11 +182,12 @@ let useItem = function (event) {
             for (let j=0; j<Object.keys(allItems).length; j++){
                 // need to find out why the method below doesn't work to replace k's length
                 //Object.keys(allItems['layer'+k]).length
-                for (let k=0; k<4; k++) {
+                for (let k=0; k<Object.keys(allItems['layer'+j]).length; k++) {
+                    debugger;
                     if (dataId === allItems['layer'+j]['item'+(k)]['name']){
                         allItems['layer'+j]['item'+(k)].useItem();
                     }
-                } break;
+                }
             }
         }
     }

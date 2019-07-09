@@ -94,8 +94,8 @@ let runInterval2; // AM/PM
 let runInterval3; //life points
 
 let runCountdown = function () {
-    runInterval1 = setInterval(startTimer1, 60000);
-    runInterval2 = setInterval(startTimer2, 30000);
+    runInterval1 = setInterval(startTimer1, 120000);
+    runInterval2 = setInterval(startTimer2, 60000);
     runInterval3 = setInterval(decreaseLifePoints, 5000);
 }
 
@@ -195,32 +195,39 @@ let displayLifePoints = function () {
 //            INCREASE OR DECREASE MAP LEVEL              //
 /////////////////////////////////////////////////////////
 console.log('dom.js running!')
+
+
 let decreaseMap = function (){
-    for (let i = 0; i<maxLayer; i++) {
+    debugger;
+    for (let i = 0; i<=maxLayer; i++) {
         let gameContainerToHide = document.querySelector('.game-container-' + currentLayer);
         let gameContainerToShow = document.querySelector('.game-container-' + (currentLayer-1));
         if (currentLayer === 0) {
-            //nothing happens;
+            // navArrowLeft.classList.remove('left-arrow');
+            break;
         } else if (currentLayer === i) {
             gameContainerToHide.style.display = 'none';
             gameContainerToShow.style.display = 'block';
+            currentLayer -= 1;
+            break;
         }
     }
-    currentLayer -= 1;
 }
 
 let increaseMap = function (){
-    for (let i = 0; i<maxLayer; i++) {
+    debugger;
+    for (let i = 0; i<=maxLayer; i++) {
         let gameContainerToHide = document.querySelector('.game-container-' + currentLayer);
         let gameContainerToShow = document.querySelector('.game-container-' + (currentLayer+1));
         if (currentLayer === maxLayer) {
-            //nothing happens
+            // navArrowRight.classList.remove('right-arrow');
+            break;
         } else if (currentLayer === i) {
-
             gameContainerToHide.style.display = 'none';
             gameContainerToShow.style.display = 'block';
+            currentLayer += 1;
+            break;
         }
     }
-    currentLayer += 1;
 }
     //          END OF DOM!!!                      //

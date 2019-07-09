@@ -2,8 +2,36 @@
 NEW Features/bugs:
 
 1. ADD 2/3 NEW LAYERS PLS
-2. fix left arrow - if left is zero layer, cannot go negative!
+2. fix left and right arrow - left 0, right 4, display none
 3. CHANGE DIFFICULTY
+
+- reduce text
+- room not very obvious (first stage should be more straightforward)
+- afraid or not?
+- too many things to see
+
+
+level 0
+clues - monkey, window, painting, fire, nothing(clue 4)
+items - key, paper, chair, potion
+unlocks - horse, shelf, lamp, button
+
+after unlock level 0 - [new key!]
+
+level 1
+clues - vase (spider), lamp 1, lamp 2
+items - main story paper (to break 3 seals), potion
+unlocks - [seal 1, seal 2, seal 3], painting/button--> unlock remaining maps
+
+level 2
+clues - shelf (book inside), sofa (rest?), painting(hint for chair)
+items - books (to throw), medallion A, medallion B
+unlocks - desk (key)
+
+level 3
+clues - fire, window
+items - medallion C (on the floor), potion
+unlocks - [chair 1, chair 2, chair 3, chair 4], chandelier (linked to floor item)
 
 EASY
 - add more music or replay background music
@@ -25,6 +53,7 @@ HARD
 - make some elements moving
 - secret items
 - secret location access
+- if burn counter = 6, unlock beach level
 
 //////////////////////////////////////////////////////////////
 

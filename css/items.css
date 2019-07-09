@@ -1,4 +1,6 @@
 
+/*			image				*/
+
 img{
 	width: 50px;
 	height: 50px;
@@ -16,18 +18,51 @@ img:active {
 	cursor: grabbing;
 }
 
+/*			shake screen here				*/
+
+.shake1 {
+  /* Start the shake animation and make the animation last for  seconds */
+  animation: shake 2s;
+   /*When the animation is finished, start again */
+  animation-iteration-count: 10;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*			all items here 				*/
+
 .item-key {
 	content: url("https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/key.png");
 }
 
 .item-paper {
-	content: url("https://comps.canstockphoto.com/old-map-treasure-island-3d-vector-icon-clipart-vector_csp44616457.jpg");
+	content: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6VuROCgUS8-aOiMbQ3XAlBv9iG8dpTHUm7D29abRr-n1OMAk");
 }
 
 .item-chair {
 	content: url("https://5.imimg.com/data5/RK/MU/MY-22845518/wooden-dining-table-500x500.jpg");
 }
 
-.item-potion {
+.item-potion0 {
 	content: url("https://soappotions.com/wp-content/uploads/2017/10/round.jpg");
+}
+
+.item-potion1 {
+	content: url("https://soappotions.com/wp-content/uploads/2017/10/round.jpg");
+}
+
+.item-note {
+	content: url("https://comps.canstockphoto.com/old-map-treasure-island-3d-vector-icon-clipart-vector_csp44616457.jpg");
 }

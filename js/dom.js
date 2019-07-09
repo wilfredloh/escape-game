@@ -1,7 +1,7 @@
 console.log('dom.js running!')
 
 let currentLayer = 0;
-let maxLayer = 10;
+let maxLayer = 3;
 
 /////////////////////////////////////////////////////////
 //              DOM LAYER 0                   //
@@ -280,6 +280,8 @@ let setMap2 = function () {
 /////////////////////////////////////////////////////////
 //              DOM LAYER 3                   //
 /////////////////////////////////////////////////////////
+
+// *** MAKE MEDALLION 3 hidden by default
 
 let setMap3 = function () {
 
