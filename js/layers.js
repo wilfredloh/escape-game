@@ -264,18 +264,18 @@ let allItems = {
             name: 'medallion1', //find in map layer 2
             found: false,
             displayItem(event) {
-                alert(`You found a medallion!`);
+                alert(`You found eternal medallion!`);
                 this.found = true;
                 event.target.style.display = 'none';
             },
             useItem() {
                 let medallion1 = allUnlockables['layer1']['unlockable1'];
                 if (medallion1['found']){
-                    alert(`You used: ${this.name}! A seal is broken!`);
+                    alert(`You used eternal medallion!! It's seal is broken!`);
                     this['found'] = false;
                     medallion1['unlocked'] = true;
                 } else {
-                    alert(`Cannot use ${this.name}!`)
+                    alert(`Cannot use eternal medallion!!`)
                 }
             }
         },
@@ -283,17 +283,17 @@ let allItems = {
             name: 'medallion2', // in layer 2 in desk (unlockable 0)
             found: false,
             displayItem(event) {
-                alert(`"You found a medallion!"`);
+                alert(`"You found dark medallion!"`);
                 this.found = true;
             },
             useItem() {
                 let seal2 = allUnlockables['layer1']['unlockable2'];
                 if (seal2['found']){
-                    alert(`You used: ${this.name}! A seal is broken!`);
+                    alert(`You used dark medallion!! It's seal is broken!`);
                     this['found'] = false;
                     seal2['unlocked'] = true;
                 } else {
-                    alert(`Cannot use ${this.name}!`)
+                    alert(`Cannot use dark medallion!!`)
                 }
             }
         }
@@ -303,18 +303,18 @@ let allItems = {
             name: 'medallion3', //find in map layer 3
             found: false,
             displayItem(event) {
-                alert(`You found a medallion!`);
+                alert(`You found the mystic medallion!`);
                 this.found = true;
                 event.target.style.display = 'none';
             },
             useItem() {
                 let medallion3 = allUnlockables['layer1']['unlockable3'];
                 if (medallion3['found']){
-                    alert(`You used: ${this.name}! A seal is broken!`);
+                    alert(`You used mystic medallion! It's seal is broken!`);
                     this['found'] = false;
                     medallion3['unlocked'] = true;
                 } else {
-                    alert(`Cannot use ${this.name}!`)
+                    alert(`Cannot use mystic medallion!`)
                 }
             }
         },
@@ -364,6 +364,7 @@ let allUnlockables = {
             name: 'horse',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
                 let answer = prompt(`"Just a bunch of old stuff" \n\n drawings\n toys \n paper \n\n What do you want to keep?\n\n (type the exact letters as seen above)`);
                 if (answer === 'paper') {
@@ -382,6 +383,7 @@ let allUnlockables = {
             name: 'highshelf',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
                 let answer = confirm(`"There's something shiny inside. \n\n Take item?`);
                 if (answer) {
@@ -400,6 +402,7 @@ let allUnlockables = {
             name: 'lamplever',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayLocked(number, event) { //LOCKED AND UNLOCKED HAPPEN HERE
                 let answer = confirm(`"A dusty old lamp..."" \n\n Look under?`);
                 if (answer) {
@@ -418,6 +421,7 @@ let allUnlockables = {
             name: 'button',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(){
                 setMap1();
                 currentLayer +=1;
@@ -456,6 +460,7 @@ let allUnlockables = {
             name: 'painting',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayLocked(number, event) {
                 let answer = prompt(`"The painting looks off..."\n\n Rotate it clockwise by __? (Type in a number)`);
                 if (answer === '184'){
@@ -488,48 +493,52 @@ let allUnlockables = {
             name: 'seal1',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
-                alert(`"You unlocked the seal!"`);
+                alert(`"You unlocked the eternal seal!"`);
                 // UNLOCKABLE LINKED TO ITEM -- ('MEDALLION1')
                 event.target.style.display = 'none';
                 checkSeal();
             },
             displayLocked() {
-                alert(`"The seals are preventing you from entering..."`);
+                alert(`"The eternal seal is preventing you from entering..."`);
             }
         },
         unlockable2: {
             name: 'seal2',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
-                alert(`"You unlocked the seal!"`);
+                alert(`"You unlocked the dark seal!"`);
                 // UNLOCKABLE LINKED TO ITEM -- ('MEDALLION2')
                 event.target.style.display = 'none';
                 checkSeal();
             },
             displayLocked() {
-                alert(`"The seals are preventing you from entering..."`);
+                alert(`"The dark seal is preventing you from entering..."`);
             }
         },
         unlockable3: {
             name: 'seal3',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
-                alert(`"You unlocked the seal!"`);
+                alert(`"You unlocked the mystic seal!"`);
                 // UNLOCKABLE LINKED TO ITEM -- ('MEDALLION3')
                 event.target.style.display = 'none';
                 checkSeal();
             },
             displayLocked() {
-                alert(`"The seals are preventing you from entering..."`);
+                alert(`"The mystic seal is preventing you from entering..."`);
             }
         },
         unlockable4: {
             name: 'easteregg',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
                 //nothing here...
             },
@@ -548,6 +557,7 @@ let allUnlockables = {
             name: 'desk',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
                 // UNLOCKABLE TO FIND ITEM -- ('MEDALLION2')
                 allItems['layer2']['item2'].displayItem();
@@ -563,6 +573,7 @@ let allUnlockables = {
             name: 'chandelier',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
                 alert(`The chandelier rattled and dropped something on the floor!`);
                 // UNLOCKABLE TO FIND ITEM -- ('MEDALLION3')
@@ -580,6 +591,7 @@ let allUnlockables = {
             name: 'chair1',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
 
             },
@@ -597,6 +609,7 @@ let allUnlockables = {
             name: 'chair2',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
 
             },
@@ -615,6 +628,7 @@ let allUnlockables = {
             name: 'chair3',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
 
             },
@@ -633,6 +647,7 @@ let allUnlockables = {
             name: 'chair4',
             unlocked: false,
             found: false,
+            lastSeen: false;
             displayUnlocked(number, event) {
 
             },

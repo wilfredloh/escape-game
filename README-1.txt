@@ -25,23 +25,35 @@ unlocks - [chair 1, chair 2, chair 3, chair 4], chandelier (linked to floor item
 extra
 fire - increases burn counter
 secret - if burn counters (2) > 4, unlock beach level
+- cheat codes: fullhp, unlock all items, unlock all maps
 
 ///////////////////////////
 ADDITIONAL FEATURES TO CONSIDER
 ///////////////////////////
-Sorting order of features based on complexity:
 
-- ask for name
-- change hover to something else
-- unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
-- hover to show a map or use map
-- end game: calculate your score (time left + health left + number of items found)
-- stop losing life after 1st stage
-- timer goes to 5 AM
+GAME
+1. make number hints random so that every time it's a new clue
+
+		let a = function (num){
+		    return Math.floor(Math.random()*num)
+		}
+
+2. add lastSeen funcitonality *** to link with items
+3. add the next levels - level 5-8 (with clues);
+4. have a map that tells players where they're at
+5. find antidote === life stops decreasing
+6. timer goes to 5 AM if hard mode
 
 - add a cheat code
 - make more moving elements
 - add more secret items
+
+CSS
+1. can left right icons/item icons to look better
+2. life bar instead of numbers
+3. font to change to something more suitable (eg: RE font-type)
+4. change hover on start button and easy /m/hard
+5. 1s fade into the main game board, and to change between pages
 
 //////////////////////////////////////////////////////////////
 
@@ -87,29 +99,3 @@ SOURCES:
 	Five Nights at Freddys: https://www.agame.com/game/five-nights-at-freddys-3
 	Walking dead telltale
 	25 escape room themes - https://lockpaperscissors.co/mysterious-escape-room-themes
-
-
-NEW Features/bugs:
-
-background image
-
-1. add difficulty at the start (easy DONE, now to finish medium)
-2. add the next levels - level 5-8 (just the image);
-4. win game --> fix the css
-5. fix images of items
-6. easter egg game
-7. looped audio
-
-- reduce text
-- room not very obvious (first stage should be more straightforward)
-- afraid or not?
-- too many things to see
-
-- fix css
-- opacity of words
-- position of items
-- change left right icon
-- bag width
-
--easter egg: if you burn yourself 4 times in room1 and 4 times in room 2, you can go to the beach in room 1 (pillar)
-- cheat codes: fullhp, unlock all items, unlock all maps
