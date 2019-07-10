@@ -293,7 +293,9 @@ let setMap2 = function () {
     gameContainer2.style.display = 'none';
 
     setMap3();
+
 }
+
 //                END OF LAYER 2                       //
 
 /////////////////////////////////////////////////////////

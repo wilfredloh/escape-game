@@ -128,7 +128,7 @@ let winEasterGame = function () {
     let easterGameSound = document.querySelector('#winGame2-sound');
 
     easterGameCont.classList.add('winGame-easter-container');
-    // easterGameSound.play();
+    easterGameSound.play();
 
     divGameContainer.classList.add('blur1');
     divStatsContainer.classList.add('blur1');

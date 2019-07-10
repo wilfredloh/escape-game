@@ -109,7 +109,7 @@ let allClues = {
             displayClue() {
                 let answer = confirm(`"Another painting. There are some words at the bottom..." \n\n Take a closer look?`);
                 if (answer){
-                    alert(`Hint: four people, four chairs, four seats. \n\nEeny, meeny, miny, two\nCatch four tiger by the toe\nIf he hollers let three go,\nEeny, meeny, miny, one`);
+                    alert(`Hint: four people, four chairs, four seats. \n\nEeny, meeny, miny, two\nCatch four tigers by the toe\nIf he hollers let three go,\nEeny, meeny, miny, one`);
                 }
             }
         }

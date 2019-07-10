@@ -164,7 +164,7 @@ let checkInput = function (input) {
             let timerbar = document.querySelectorAll('.stat-wrap')[3];
             timerbar.style.display = 'none';
             alert('Time stopped!');
-        } else if (filteredInput = 'hp') {
+        } else if (filteredInput === 'hp') {
             currentLifePoints = 9999;
             alert('Max HP!');
         }
