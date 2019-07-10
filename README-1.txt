@@ -1,30 +1,5 @@
 
-NEW Features/bugs:
-
-background image
-
-1. add difficulty at the start (easy DONE, now to finish medium)
-2. add the next levels - level 5-8 (just the image);
-4. win game --> fix the css
-5. fix images of items
-6. easter egg game
-7. looped audio
-
-- reduce text
-- room not very obvious (first stage should be more straightforward)
-- afraid or not?
-- too many things to see
-
-- fix css
-- opacity of words
-- position of items
-- change left right icon
-- bag width
-
--easter egg: if you burn yourself 4 times in room1 and 4 times in room 2, you can go to the beach in room 1 (pillar)
-- cheat codes: fullhp, unlock all items, unlock all maps
-
-/////////////////////
+////////////////////////
 level 0
 clues - monkey, window, painting, fire, nothing(clue 4)
 items - key, paper, chair, potion
@@ -46,6 +21,8 @@ level 3
 clues - fire, window
 items - medallion C (on the floor), potion
 unlocks - [chair 1, chair 2, chair 3, chair 4], chandelier (linked to floor item)
+
+/////
 
 EASY
 - add more music or replay background music
@@ -110,3 +87,29 @@ SOURCES:
 	Five Nights at Freddys: https://www.agame.com/game/five-nights-at-freddys-3
 	Walking dead telltale
 	25 escape room themes - https://lockpaperscissors.co/mysterious-escape-room-themes
+
+
+NEW Features/bugs:
+
+background image
+
+1. add difficulty at the start (easy DONE, now to finish medium)
+2. add the next levels - level 5-8 (just the image);
+4. win game --> fix the css
+5. fix images of items
+6. easter egg game
+7. looped audio
+
+- reduce text
+- room not very obvious (first stage should be more straightforward)
+- afraid or not?
+- too many things to see
+
+- fix css
+- opacity of words
+- position of items
+- change left right icon
+- bag width
+
+-easter egg: if you burn yourself 4 times in room1 and 4 times in room 2, you can go to the beach in room 1 (pillar)
+- cheat codes: fullhp, unlock all items, unlock all maps
