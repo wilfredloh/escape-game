@@ -21,13 +21,13 @@ let allClues = {
             displayClue() {
                 let inspect = confirm(`"It's dark outside. There's a writing on the window but it's hard to see clearly..."\n\n Look closer?`);
                 if (inspect) {
-                    alert(` "At the beginning, there were eight animals..."`);
+                    alert(` "At the beginning, there were four animals..."`);
                 }
             }
         },
         clue2: {
             displayClue() {
-                alert(`"The painting looks old. It looks like the painter was trying to draw his last seven horses..."`)
+                alert(`"The painting looks old. It looks like the painter was trying to draw his last nine horses..."`)
             }
         },
         clue3: {
@@ -165,7 +165,7 @@ let allItems = {
             },
             //      ITEM FROM UNLOCKABLE -- (HORSE)
             useItem() {
-                alert(`So many monkeys jumping on the bed,\n TWO fell down and bumped their heads,\n Mama called the doctor and the doctor said,\n No more monkeys jumping on the bed!`)
+                alert(`So many monkeys jumping on the bed,\n SIX fell down and bumped their heads,\n Mama called the doctor and the doctor said,\n No more monkeys jumping on the bed!`)
             }
         },
         item2: {
@@ -404,7 +404,7 @@ let allUnlockables = {
                 let answer = confirm(`"A dusty old lamp..."" \n\n Look under?`);
                 if (answer) {
                     let code = prompt(`"Looks like a 4 digit number lock..." \n\n _ _ _ _`);
-                    if (code == '8237') {
+                    if (code == '4639') {
                         alert(`You turned on the power! It might have unlocked something...`)
                         this.unlocked = true;
                         event.target.style.display = 'none';
@@ -458,7 +458,7 @@ let allUnlockables = {
             found: false,
             displayLocked(number, event) {
                 let answer = prompt(`"The painting looks off..."\n\n Rotate it clockwise by __? (Type in a number)`);
-                if (answer === '249'){
+                if (answer === '184'){
                     let answer2 = confirm(`"The painting revealed a lever!" \n\n Pull lever?`);
                     if (answer2 && sealBroken) {
                         if(difficulty === 'medium'){
@@ -586,7 +586,7 @@ let allUnlockables = {
             displayLocked(number, event) {
                 let answer = confirm(`"This chair looks comfy..."\n\nSit?`);
                 if (answer && chairCount === 111) {
-                    alert(`The rotation in reverse is: \n\n 9 4 2`);
+                    alert(`The rotation in reverse is: \n\n 4 8 1`);
                 } else if (answer) {
                     chairCount = 0;
                     alert(`You sat on the chair.... \n\nNothing happened.`);

@@ -144,14 +144,14 @@ let checkInput = function (input) {
     if (filteredInput.includes('help')) {
         helpers.hints.help();
     //              CHEAT CODES!!!!!!!
-    } else if (filteredInput === 'i') {
+    } else if (filteredInput === 'item321') {
         for (let i=0; i<Object.keys(allItems).length; i++){
             for (let j=0; j<Object.keys(allItems['layer'+i]).length; j++) {
                 allItems['layer'+i]['item'+(j)]['found'] = true;
             }
         }
         alert('All items unlocked!');
-        } else if (filteredInput === 'u') {
+        } else if (filteredInput === 'un321') {
             for (let i=0; i<Object.keys(allUnlockables).length; i++){
                 for (let j=0; j<Object.keys(allUnlockables['layer'+i]).length; j++) {
                     allUnlockables['layer'+i]['unlockable'+(j)]['unlocked'] = true;
@@ -160,7 +160,7 @@ let checkInput = function (input) {
             }
             sealBroken = true;
             alert('All maps unlocked!');
-        } else if (filteredInput === 'stop') {
+        } else if (filteredInput === 'stopt') {
             let timerbar = document.querySelectorAll('.stat-wrap')[3];
             timerbar.style.display = 'none';
             alert('Time stopped!');

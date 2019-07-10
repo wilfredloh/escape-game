@@ -1,11 +1,11 @@
 
-////////////////////////
+///////////////////////////
+CLUES, ITEMS & UNLOCKS
+///////////////////////////
 level 0
 clues - monkey, window, painting, fire, nothing(clue 4)
 items - key, paper, chair, potion
 unlocks - horse, shelf, lamp, button
-
-after unlock level 0 - [new key!]
 
 level 1
 clues - vase (spider), lamp 1, lamp 2
@@ -22,39 +22,39 @@ clues - fire, window
 items - medallion C (on the floor), potion
 unlocks - [chair 1, chair 2, chair 3, chair 4], chandelier (linked to floor item)
 
-/////
+extra
+fire - increases burn counter
+secret - if burn counters (2) > 4, unlock beach level
 
-EASY
-- add more music or replay background music
-- top left corner to remove clickable
-- add a subtle background to the entire body
+///////////////////////////
+ADDITIONAL FEATURES TO CONSIDER
+///////////////////////////
+Sorting order of features based on complexity:
+
 - ask for name
 - change hover to something else
-
-MEDIUM
 - unlock item only if it's the last unlockable clicked (changing 'found' key to 'lastSeen')
 - hover to show a map or use map
 - end game: calculate your score (time left + health left + number of items found)
 - stop losing life after 1st stage
-- time goes to 5 AM
+- timer goes to 5 AM
 
-HARD
 - add a cheat code
-- make some elements moving
-- secret items
-- secret location access
-- if burn counter = 6, unlock beach level
+- make more moving elements
+- add more secret items
 
 //////////////////////////////////////////////////////////////
 
 HOW THE GAME WORKS ...
 
-	0 - start of game
-	1 - box unlocked
-	2 - riddle guessed, start of 2nd layer
-	3 - something unlocked
-	4 - riddle guessed, start of 3rd layer
-	5 - something unlocked, win!
+	0 - start game by choosing difficulty
+	1 - player has to search the room for clues and hints
+	2 - if an object can be interacted with, it will show a grabbing mouse pointer
+	3 - once player guesses the riddle it will unlock a new layer
+
+	* if timer or player's life points reaches zero, lose game
+
+//////////////////////////////////////////////////////////////
 
 1. ask for name, start game button
 2. show main image plus add in event listeners for each row entire board
