@@ -364,7 +364,7 @@ let allUnlockables = {
             name: 'horse',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 let answer = prompt(`"Just a bunch of old stuff" \n\n drawings\n toys \n paper \n\n What do you want to keep?\n\n (type the exact letters as seen above)`);
                 if (answer === 'paper') {
@@ -383,7 +383,7 @@ let allUnlockables = {
             name: 'highshelf',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 let answer = confirm(`"There's something shiny inside. \n\n Take item?`);
                 if (answer) {
@@ -402,7 +402,7 @@ let allUnlockables = {
             name: 'lamplever',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayLocked(number, event) { //LOCKED AND UNLOCKED HAPPEN HERE
                 let answer = confirm(`"A dusty old lamp..."" \n\n Look under?`);
                 if (answer) {
@@ -421,7 +421,7 @@ let allUnlockables = {
             name: 'button',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(){
                 setMap1();
                 currentLayer +=1;
@@ -460,7 +460,7 @@ let allUnlockables = {
             name: 'painting',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayLocked(number, event) {
                 let answer = prompt(`"The painting looks off..."\n\n Rotate it clockwise by __? (Type in a number)`);
                 if (answer === '184'){
@@ -493,7 +493,7 @@ let allUnlockables = {
             name: 'seal1',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 alert(`"You unlocked the eternal seal!"`);
                 // UNLOCKABLE LINKED TO ITEM -- ('MEDALLION1')
@@ -508,7 +508,7 @@ let allUnlockables = {
             name: 'seal2',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 alert(`"You unlocked the dark seal!"`);
                 // UNLOCKABLE LINKED TO ITEM -- ('MEDALLION2')
@@ -523,7 +523,7 @@ let allUnlockables = {
             name: 'seal3',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 alert(`"You unlocked the mystic seal!"`);
                 // UNLOCKABLE LINKED TO ITEM -- ('MEDALLION3')
@@ -538,7 +538,7 @@ let allUnlockables = {
             name: 'easteregg',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 //nothing here...
             },
@@ -557,7 +557,7 @@ let allUnlockables = {
             name: 'desk',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 // UNLOCKABLE TO FIND ITEM -- ('MEDALLION2')
                 allItems['layer2']['item2'].displayItem();
@@ -573,7 +573,7 @@ let allUnlockables = {
             name: 'chandelier',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
                 alert(`The chandelier rattled and dropped something on the floor!`);
                 // UNLOCKABLE TO FIND ITEM -- ('MEDALLION3')
@@ -591,7 +591,7 @@ let allUnlockables = {
             name: 'chair1',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
 
             },
@@ -609,7 +609,7 @@ let allUnlockables = {
             name: 'chair2',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
 
             },
@@ -628,7 +628,7 @@ let allUnlockables = {
             name: 'chair3',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
 
             },
@@ -647,7 +647,7 @@ let allUnlockables = {
             name: 'chair4',
             unlocked: false,
             found: false,
-            lastSeen: false;
+            lastSeen: false,
             displayUnlocked(number, event) {
 
             },

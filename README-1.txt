@@ -32,6 +32,7 @@ ADDITIONAL FEATURES TO CONSIDER
 ///////////////////////////
 
 GAME
+*** REFACTOR CODE
 1. make number hints random so that every time it's a new clue
 
 		let a = function (num){
@@ -43,17 +44,21 @@ GAME
 4. have a map that tells players where they're at
 5. find antidote === life stops decreasing
 6. timer goes to 5 AM if hard mode
+7. change alerts to modals
 
-- add a cheat code
-- make more moving elements
-- add more secret items
+- add more cheat codes/secret items/easter egg
 
 CSS
-1. can left right icons/item icons to look better
+1. can find left right icons/item icons to look better ()
 2. life bar instead of numbers
 3. font to change to something more suitable (eg: RE font-type)
-4. change hover on start button and easy /m/hard
+4. change hover on start button and easy /m/hard + sound effect when click should be diff
 5. 1s fade into the main game board, and to change between pages
+6. add moving images/GIFs
+7. make hover bigger
+8. when click on difficulty, add some sfx, then fade, then loading, then only start game
+
+- see other video games how they do their styling (eg: RE7, Walking dead, outlast? )
 
 //////////////////////////////////////////////////////////////
 
