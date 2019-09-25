@@ -1,4 +1,4 @@
-ESCAPE FROM HAUNTED HILL : https://wilfredloh.github.io/project1-survivalgame/
+ESCAPE FROM HAUNTED HILL : https://wilfredloh.github.io/escape-game/
 
 1. Problem Statement
 	- The goal of this game was to get players to be engaged in the game for a minimum duration of 5 mins.

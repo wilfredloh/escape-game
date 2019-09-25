@@ -63,7 +63,6 @@ let checkMatch = function (event) {
     getCurrentItems();
     displayItemBar();
 }
-
 //               CHECK CLUE / ITEM / UNLOCK              //
 
 let checkClue = function (number, event) {
