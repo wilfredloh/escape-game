@@ -5,8 +5,8 @@ ESCAPE FROM HAUNTED HILL : https://wilfredloh.github.io/escape-game/
 	- The game is meant to be played multiple times to allow some replayability, and to get players to solve riddles that provides a sense of accomplishment when they complete the game.
 
 2. Technologies / Skills
-	- Technologies: HTML, CSS, Javascript (DOM)
-	- Skills: Creating a mood/setting, items, unlockables, clues and hints
+	- Technologies: HTML, CSS, Javascript & DOM Manipulation
+	- Skills: Game design, copywriting, story-creation
 
 3. Approach
 	- Research games within the scope of the unit
