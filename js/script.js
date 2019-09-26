@@ -8,32 +8,6 @@ let checkMatch = function (event) {
     clickingSound.volume = 0.1;
     clickingSound.play();
 
-    // let cluesDiv = document.querySelector('.all-clues-0');
-    // let itemsDiv = document.querySelector('.all-items-0');
-    // let unlockDiv = document.querySelector('.all-unlocks-0');
-
-
-    // if (cluesDiv === event.target.parentElement) {
-    //     for (let i=0; i<cluesDiv.children.length; i++) {
-    //         if (cluesDiv.children[i] === event.target) {
-    //             checkClue(i);
-    //         }
-    //     }
-    // } else if (itemsDiv === event.target.parentElement) {
-    //     for (let i=0; i<itemsDiv.children.length; i++) {
-    //         if (itemsDiv.children[i] === event.target) {
-    //             checkItem(i, event);
-    //         }
-    //     }
-    // } else if (unlockDiv === event.target.parentElement) {
-    //     for (let i=0; i<unlockDiv.children.length; i++) {
-    //         if (unlockDiv.children[i] === event.target) {
-    //                     console.log('entered checkmatch')
-    //             checkUnlock(i, event);
-    //         }
-    //     }
-    // }
-
     //      x = 3 represents 3 layers for now
     for (let x=0; x<4; x++) {
         let cluesDiv = document.querySelector('.all-clues-'+x);
